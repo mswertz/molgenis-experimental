@@ -1,0 +1,3592 @@
+<html>
+
+<head>
+	<title>test Documentation</title>
+	
+	<meta name="keywords"			content="">
+	<meta name="description"		content="">
+	<meta http-equiv="Contect-Type"	content="text/html; charset-UTF-8">
+	
+	<style type="text/css">
+		body
+		{
+			background:		#ffffff;
+			color:			#000000;
+			font-family:	arial, sans-serif;
+			font-size:		10pt;
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+		p {
+			max-width: 1000px;
+			text-align: left;
+		}
+		h1{
+			margin-top 20px;
+		}
+		h3{
+			text-decoration: underline;
+			margin-bottom: 0px;
+			padding-bottom: 0px;
+		}
+		td
+		{
+			font-family:	arial, sans-serif;
+			font-size:		10pt;
+			vertical-align: top;
+		}
+		.tablehead
+		{
+			background:		#888888;
+			color:			#ffffff;
+			text-align:		left;
+			font-family:	arial, sans-serif;
+			font-size:		10pt;
+			font-weight:	bold;
+		}
+		th
+		{
+			font-family:	arial, sans-serif;
+			font-size:		10pt;
+			font-weight:	bold;
+		}
+	</style>
+</head>
+
+
+
+<body>
+<h1><a href="#_top_of_page">test</a> documentation.</h1>
+
+
+<h2>Table of contents</h2>
+<table style="width:100%"><tr>
+<td>
+<a href="#fields_package">fields</a> <span style="font-weight:bold">package:
+<ul>
+<li><a href="#VarcharEntity">VarcharEntity</a></li>
+<li><a href="#OtherVarcharEntity">OtherVarcharEntity</a></li>
+<li><a href="#XrefEntity">XrefEntity</a></li>
+<li><a href="#TreeEntity">TreeEntity</a></li>
+<li><a href="#DateEntity">DateEntity</a></li>
+<li><a href="#DateTimeEntity">DateTimeEntity</a></li>
+<li><a href="#MrefEntity">MrefEntity</a></li>
+<li><a href="#FileEntity">FileEntity</a></li>
+<li><a href="#EnumEntity">EnumEntity</a></li>
+<li><a href="#DecimalEntity">DecimalEntity</a></li>
+<li><a href="#BoolEntity">BoolEntity</a></li>
+<li><a href="#IntEntity">IntEntity</a></li>
+<li><a href="#HiddenId">HiddenId</a></li>
+<li><a href="#TextEntity">TextEntity</a></li>
+<li><a href="#RichtextEntity">RichtextEntity</a></li>
+<li><a href="#FreemarkerEntity">FreemarkerEntity</a></li>
+</ul>
+</td>
+<td>
+<a href="#inheritance_package">inheritance</a> <span style="font-weight:bold">package:
+<ul>
+<li><a href="#interfaceC">interfaceC</a></li>
+<li><a href="#ClassA">ClassA</a></li>
+<li><a href="#BextendsA">BextendsA</a></li>
+<li><a href="#CextendsA">CextendsA</a></li>
+<li><a href="#DextendsB">DextendsB</a></li>
+<li><a href="#InterfaceA">InterfaceA</a></li>
+<li><a href="#BimplementsA">BimplementsA</a></li>
+<li><a href="#CimplementsA">CimplementsA</a></li>
+<li><a href="#DextendsBimplementsA">DextendsBimplementsA</a></li>
+<li><a href="#guessMe">guessMe</a></li>
+<li><a href="#GuessMeXref">GuessMeXref</a></li>
+</ul>
+</td>
+<td>
+<a href="#composit_labels_package">composit_labels</a> <span style="font-weight:bold">package:
+<ul>
+<li><a href="#Investigation">Investigation</a></li>
+<li><a href="#SimpleCompositKey">SimpleCompositKey</a></li>
+<li><a href="#XrefCompositKey">XrefCompositKey</a></li>
+<li><a href="#SimpleMulticolXref">SimpleMulticolXref</a></li>
+</ul>
+</td>
+</tr></table>
+<br>
+<a href="#__figure_of_complete_schema">Supplementary figure: complete data model</a>
+
+
+<h1><a href="#fields_package">fields package</a></h1>
+<p>Test fields</p>
+<img src="objectmodel-uml-diagram-fields.dot.png" style="border: solid thin black;">
+<a href="objectmodel-uml-diagram-fields.dot.png" target="_blank">show fullscreen</a>
+<h3><a href="VarcharEntity">VarcharEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+Test Varchar
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableVarchar</span>: string 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an VarcharEntity.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(normalVarchar): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field normalVarchar is unique within an VarcharEntity.
+</td></tr>
+</table>
+<h3><a href="OtherVarcharEntity">OtherVarcharEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableVarchar</span>: string 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an OtherVarcharEntity.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(normalVarchar): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field normalVarchar is unique within an OtherVarcharEntity.
+</td></tr>
+</table>
+<h3><a href="XrefEntity">XrefEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">normalXref: 
+VarcharEntity (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">readonlyXref: 
+VarcharEntity (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">nillableXref: 
+OtherVarcharEntity (0..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an XrefEntity.
+</td></tr>
+</table>
+<h3><a href="TreeEntity">TreeEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">parent: 
+TreeEntity (0..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an TreeEntity.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(name): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field name is unique within an TreeEntity.
+</td></tr>
+</table>
+<h3><a href="DateEntity">DateEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableDate</span>: date 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">autoDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an DateEntity.
+</td></tr>
+</table>
+<h3><a href="DateTimeEntity">DateTimeEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableDateTime</span>: datetime 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">autoDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an DateTimeEntity.
+</td></tr>
+</table>
+<h3><a href="MrefEntity">MrefEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">At least one normal field is required...
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">normalMref: VarcharEntity (1..n)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">readonlyMref: VarcharEntity (1..n)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">nillableMref: VarcharEntity (0..n)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an MrefEntity.
+</td></tr>
+</table>
+<h3><a href="FileEntity">FileEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalFile</span>: file 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyFile</span>: file 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableFile</span>: file 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an FileEntity.
+</td></tr>
+</table>
+<h3><a href="EnumEntity">EnumEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalEnum</span>: enum 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyEnum</span>: enum 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableEnum</span>: enum 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultEnum</span>: enum 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an EnumEntity.
+</td></tr>
+</table>
+<h3><a href="DecimalEntity">DecimalEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalDecimal</span>: decimal 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyDecimal</span>: decimal 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableDecimal</span>: decimal 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultDecimal</span>: decimal 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an DecimalEntity.
+</td></tr>
+</table>
+<h3><a href="BoolEntity">BoolEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalBool</span>: bool 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyBool</span>: bool 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableBool</span>: bool 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultBool</span>: bool 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an BoolEntity.
+</td></tr>
+</table>
+<h3><a href="IntEntity">IntEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalInt</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyInt</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableInt</span>: int 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultInt</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an IntEntity.
+</td></tr>
+</table>
+<h3><a href="HiddenId">HiddenId</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableVarchar</span>: string 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an HiddenId.
+</td></tr>
+</table>
+<h3><a href="TextEntity">TextEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalText</span>: text 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyText</span>: text 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableText</span>: text 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultText</span>: text 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an TextEntity.
+</td></tr>
+</table>
+<h3><a href="RichtextEntity">RichtextEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalText</span>: richtext 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyText</span>: richtext 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableText</span>: richtext 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultText</span>: richtext 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an RichtextEntity.
+</td></tr>
+</table>
+<h3><a href="FreemarkerEntity">FreemarkerEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalFreemarker</span>: freemarker 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyFreemarker</span>: freemarker 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableFreemarker</span>: freemarker 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultFreemarker</span>: freemarker 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an FreemarkerEntity.
+</td></tr>
+</table>
+<br>
+<br>
+<h1><a href="#inheritance_package">inheritance package</a></h1>
+
+<img src="objectmodel-uml-diagram-inheritance.dot.png" style="border: solid thin black;">
+<a href="objectmodel-uml-diagram-inheritance.dot.png" target="_blank">show fullscreen</a>
+<h3><a href="interfaceC">interfaceC</a> (interface).</h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">nameC</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">xrefC: 
+VarcharEntity (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<h3><a href="ClassA">ClassA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldA</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an ClassA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an ClassA.
+</td></tr>
+</table>
+<h3><a href="BextendsA">BextendsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends ClassA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldB</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="CextendsA">CextendsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends ClassA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldC</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="DextendsB">DextendsB</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends BextendsA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+fieldB, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldD</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="InterfaceA">InterfaceA</a> (interface).</h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldA</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an InterfaceA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an InterfaceA.
+</td></tr>
+</table>
+<h3><a href="BimplementsA">BimplementsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+<span style="font-style:italic"> implements InterfaceA</span><br>
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldB</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">IssueType</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">Issue
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an BimplementsA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an BimplementsA.
+</td></tr>
+</table>
+<h3><a href="CimplementsA">CimplementsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+<span style="font-style:italic"> implements InterfaceA</span><br>
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldC</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an CimplementsA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an CimplementsA.
+</td></tr>
+</table>
+<h3><a href="DextendsBimplementsA">DextendsBimplementsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends BimplementsA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+fieldB, 
+IssueType, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldD</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="guessMe">guessMe</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">thename</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">guessMeId</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(guessMeId): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field guessMeId is unique within an guessMe.
+</td></tr>
+</table>
+<h3><a href="GuessMeXref">GuessMeXref</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">guessMeXrefId</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">guessMeId</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(guessMeXrefId): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field guessMeXrefId is unique within an GuessMeXref.
+</td></tr>
+</table>
+<br>
+<br>
+<h1><a href="#composit_labels_package">composit_labels package</a></h1>
+
+<img src="objectmodel-uml-diagram-composit_labels.dot.png" style="border: solid thin black;">
+<a href="objectmodel-uml-diagram-composit_labels.dot.png" target="_blank">show fullscreen</a>
+<h3><a href="Investigation">Investigation</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an Investigation.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(name): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field name is unique within an Investigation.
+</td></tr>
+</table>
+<h3><a href="SimpleCompositKey">SimpleCompositKey</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+Test reference for composit keys without them being
+				xrefs themselfs
+			
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">key1</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">key2</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an SimpleCompositKey.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(key1, key2): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+The combination of fields key1, key2 is unique within an SimpleCompositKey.
+</td></tr>
+</table>
+<h3><a href="XrefCompositKey">XrefCompositKey</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+Test reference for composit keys with one of them being
+				xref themselfs
+			
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">investigation: 
+Investigation (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an XrefCompositKey.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(investigation, name): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+The combination of fields investigation, name is unique within an XrefCompositKey.
+</td></tr>
+</table>
+<h3><a href="SimpleMulticolXref">SimpleMulticolXref</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">multicol: 
+SimpleCompositKey (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an SimpleMulticolXref.
+</td></tr>
+</table>
+<br>
+<br>
+
+<h1><a href="test_package">test package</a></h1>
+<h3><a href="VarcharEntity">VarcharEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+Test Varchar
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableVarchar</span>: string 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an VarcharEntity.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(normalVarchar): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field normalVarchar is unique within an VarcharEntity.
+</td></tr>
+</table>
+<h3><a href="OtherVarcharEntity">OtherVarcharEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableVarchar</span>: string 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an OtherVarcharEntity.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(normalVarchar): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field normalVarchar is unique within an OtherVarcharEntity.
+</td></tr>
+</table>
+<h3><a href="XrefEntity">XrefEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">normalXref: 
+VarcharEntity (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">readonlyXref: 
+VarcharEntity (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">nillableXref: 
+OtherVarcharEntity (0..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an XrefEntity.
+</td></tr>
+</table>
+<h3><a href="TreeEntity">TreeEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">parent: 
+TreeEntity (0..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an TreeEntity.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(name): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field name is unique within an TreeEntity.
+</td></tr>
+</table>
+<h3><a href="DateEntity">DateEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableDate</span>: date 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">autoDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultDate</span>: date 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an DateEntity.
+</td></tr>
+</table>
+<h3><a href="DateTimeEntity">DateTimeEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableDateTime</span>: datetime 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">autoDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultDateTime</span>: datetime 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an DateTimeEntity.
+</td></tr>
+</table>
+<h3><a href="MrefEntity">MrefEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">At least one normal field is required...
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">normalMref: VarcharEntity (1..n)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">readonlyMref: VarcharEntity (1..n)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+<tr>
+<td 1>
+<p style="text-decoration:underline">nillableMref: VarcharEntity (0..n)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an MrefEntity.
+</td></tr>
+</table>
+<h3><a href="FileEntity">FileEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalFile</span>: file 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyFile</span>: file 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableFile</span>: file 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an FileEntity.
+</td></tr>
+</table>
+<h3><a href="EnumEntity">EnumEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalEnum</span>: enum 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyEnum</span>: enum 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableEnum</span>: enum 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultEnum</span>: enum 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+<br>enum_options: '[a', 'b', 'c]'
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an EnumEntity.
+</td></tr>
+</table>
+<h3><a href="DecimalEntity">DecimalEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalDecimal</span>: decimal 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyDecimal</span>: decimal 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableDecimal</span>: decimal 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultDecimal</span>: decimal 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an DecimalEntity.
+</td></tr>
+</table>
+<h3><a href="BoolEntity">BoolEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalBool</span>: bool 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyBool</span>: bool 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableBool</span>: bool 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultBool</span>: bool 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an BoolEntity.
+</td></tr>
+</table>
+<h3><a href="IntEntity">IntEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalInt</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyInt</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableInt</span>: int 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultInt</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an IntEntity.
+</td></tr>
+</table>
+<h3><a href="HiddenId">HiddenId</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableVarchar</span>: string 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultVarchar</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an HiddenId.
+</td></tr>
+</table>
+<h3><a href="TextEntity">TextEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalText</span>: text 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyText</span>: text 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableText</span>: text 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultText</span>: text 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an TextEntity.
+</td></tr>
+</table>
+<h3><a href="RichtextEntity">RichtextEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalText</span>: richtext 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyText</span>: richtext 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableText</span>: richtext 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultText</span>: richtext 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an RichtextEntity.
+</td></tr>
+</table>
+<h3><a href="FreemarkerEntity">FreemarkerEntity</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">normalFreemarker</span>: freemarker 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">readonlyFreemarker</span>: freemarker 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">nillableFreemarker</span>: freemarker 
+(optional)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">defaultFreemarker</span>: freemarker 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an FreemarkerEntity.
+</td></tr>
+</table>
+<h3><a href="interfaceC">interfaceC</a> (interface).</h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">nameC</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">xrefC: 
+VarcharEntity (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<h3><a href="ClassA">ClassA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldA</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an ClassA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an ClassA.
+</td></tr>
+</table>
+<h3><a href="BextendsA">BextendsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends ClassA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldB</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="CextendsA">CextendsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends ClassA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldC</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="DextendsB">DextendsB</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends BextendsA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+fieldB, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldD</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="InterfaceA">InterfaceA</a> (interface).</h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldA</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an InterfaceA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an InterfaceA.
+</td></tr>
+</table>
+<h3><a href="BimplementsA">BimplementsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+<span style="font-style:italic"> implements InterfaceA</span><br>
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldB</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">IssueType</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">Issue
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an BimplementsA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an BimplementsA.
+</td></tr>
+</table>
+<h3><a href="CimplementsA">CimplementsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+<span style="font-style:italic"> implements InterfaceA</span><br>
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldC</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an CimplementsA.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(fieldA): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field fieldA is unique within an CimplementsA.
+</td></tr>
+</table>
+<h3><a href="DextendsBimplementsA">DextendsBimplementsA</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+<span style="font-style:italic"> extends BimplementsA</span><br>
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Inherited attributes:
+</p>
+<br>
+id, 
+fieldA, 
+fieldB, 
+IssueType, 
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">fieldD</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<h3><a href="guessMe">guessMe</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">thename</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">guessMeId</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(guessMeId): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field guessMeId is unique within an guessMe.
+</td></tr>
+</table>
+<h3><a href="GuessMeXref">GuessMeXref</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">guessMeXrefId</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">guessMeId</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(guessMeXrefId): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field guessMeXrefId is unique within an GuessMeXref.
+</td></tr>
+</table>
+<h3><a href="Investigation">Investigation</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an Investigation.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(name): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field name is unique within an Investigation.
+</td></tr>
+</table>
+<h3><a href="SimpleCompositKey">SimpleCompositKey</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+Test reference for composit keys without them being
+				xrefs themselfs
+			
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">key1</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">key2</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an SimpleCompositKey.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(key1, key2): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+The combination of fields key1, key2 is unique within an SimpleCompositKey.
+</td></tr>
+</table>
+<h3><a href="XrefCompositKey">XrefCompositKey</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+Test reference for composit keys with one of them being
+				xref themselfs
+			
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">investigation: 
+Investigation (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an XrefCompositKey.
+</td></tr>
+<tr>
+<td 1 style="font-weight:bold">
+unique(investigation, name): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+The combination of fields investigation, name is unique within an XrefCompositKey.
+</td></tr>
+</table>
+<h3><a href="SimpleMulticolXref">SimpleMulticolXref</a></h3>
+<p style="margin-top: 0px; margin-bottom: 0px;">
+
+
+</p>
+<p>	
+No description provided
+</p>
+<p style="text-decoration:underline">
+Attributes:
+</p>
+<table>	
+<tr>
+<td 1 >
+<span style="font-weight:bold">id</span>: int 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+<tr>
+<td 1 >
+<span style="font-weight:bold">name</span>: string 
+(required)
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided
+</td></tr>
+</table>
+<p style="text-decoration:underline">
+Associations:
+<table>	
+<tr>
+<td 1>
+<p style="text-decoration:underline">multicol: 
+SimpleCompositKey (1..1)
+
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">No description provided</td></tr>
+</table>
+<p style="text-decoration:underline">
+Constraints:
+</p>
+<table>	
+<tr>
+<td 1 style="font-weight:bold">
+unique(id): 
+</td>
+</tr>
+<tr><td style="padding-left: 50px;">
+Field id is unique within an SimpleMulticolXref.
+</td></tr>
+</table>
+<br>
+<br>
+
+<h1>Supplementary figure: complete data model</h1>
+<a href="__figure_of_complete_schema"></a><br>
+<img src="objectmodel-uml-diagram.dot.png" style="border: solid double black;">
+<br>
+<a href="#_top_of_page">go to top</a>
+
+<div align="center">Documentation generated on March 19, 2013 by MOLGENIS <a href="http://www.molgenis.org">http://www.molgenis.org</a></div>
+</body></html>
+
+
+
