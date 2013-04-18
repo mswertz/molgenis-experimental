@@ -109,7 +109,7 @@ digraph G {
 			        	fontcolor = "black"
 			        	color = "black"
                 
-                        label = "{FileEntity|id : int*\lnormalFile : file*\lreadonlyFile : file*\lnillableFile : file\l}"
+                        label = "{FileEntity|id : int*\lnormalFile : unknown*\lreadonlyFile : unknown*\lnillableFile : unknown\l}"
                 ]
 
                "EnumEntity" [
@@ -189,7 +189,7 @@ digraph G {
 			        	fontcolor = "black"
 			        	color = "black"
                 
-                        label = "{FreemarkerEntity|id : int*\lnormalFreemarker : freemarker*\lreadonlyFreemarker : freemarker*\lnillableFreemarker : freemarker\ldefaultFreemarker : freemarker*\l}"
+                        label = "{FreemarkerEntity|id : int*\lnormalFreemarker : unknown*\lreadonlyFreemarker : unknown*\lnillableFreemarker : unknown\ldefaultFreemarker : unknown*\l}"
                 ]
 
 /*entities inside modules*/
@@ -271,7 +271,7 @@ digraph G {
 			        	fontcolor = "black"
 			        	color = "black"
                 
-                        label = "{FileEntity|id : int*\lnormalFile : file*\lreadonlyFile : file*\lnillableFile : file\l}"
+                        label = "{FileEntity|id : int*\lnormalFile : unknown*\lreadonlyFile : unknown*\lnillableFile : unknown\l}"
                 ]
                 "EnumEntity" [
                 	    style = "filled"
@@ -343,7 +343,7 @@ digraph G {
 			        	fontcolor = "black"
 			        	color = "black"
                 
-                        label = "{FreemarkerEntity|id : int*\lnormalFreemarker : freemarker*\lreadonlyFreemarker : freemarker*\lnillableFreemarker : freemarker\ldefaultFreemarker : freemarker*\l}"
+                        label = "{FreemarkerEntity|id : int*\lnormalFreemarker : unknown*\lreadonlyFreemarker : unknown*\lnillableFreemarker : unknown\ldefaultFreemarker : unknown*\l}"
                 ]
 /*        }  */
 /*        subgraph cluster_1 {

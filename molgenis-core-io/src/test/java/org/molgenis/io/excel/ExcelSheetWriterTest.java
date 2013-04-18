@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import org.molgenis.io.Record;
+import org.molgenis.Record;
 import org.molgenis.io.processor.CellProcessor;
 import org.molgenis.io.record.MapRecord;
 import org.testng.annotations.AfterMethod;

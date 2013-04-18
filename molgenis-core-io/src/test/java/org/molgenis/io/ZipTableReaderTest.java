@@ -83,13 +83,13 @@ public class ZipTableReaderTest
 	@Test(expectedExceptions = IllegalArgumentException.class)
 	public void ZipTableReader() throws IOException
 	{
-		new ZipTableReader(null);
+		new ZipTableCollectionReader(null);
 	}
 
 	@Test
 	public void getTableNames() throws IOException
 	{
-		ZipTableReader zipTableReader = new ZipTableReader(new ZipFile(ZIP_FILE));
+		ZipTableCollectionReader zipTableReader = new ZipTableCollectionReader(new ZipFile(ZIP_FILE));
 		try
 		{
 			List<String> tableNames = Lists.newArrayList(zipTableReader.getTableNames());
@@ -107,10 +107,10 @@ public class ZipTableReaderTest
 	@Test
 	public void getTupleReader() throws IOException
 	{
-		ZipTableReader zipTableReader = new ZipTableReader(new ZipFile(ZIP_FILE));
+		ZipTableCollectionReader zipTableReader = new ZipTableCollectionReader(new ZipFile(ZIP_FILE));
 		try
 		{
-			RecordReader tupleReader0 = zipTableReader.getTupleReader("0");
+			TableReader tupleReader0 = zipTableReader.getTupleReader("0");
 			try
 			{
 				Collection<String> colNames = Lists.newArrayList(tupleReader0.colNamesIterator());
@@ -123,7 +123,7 @@ public class ZipTableReaderTest
 				tupleReader0.close();
 			}
 
-			RecordReader tupleReader1 = zipTableReader.getTupleReader("1");
+			TableReader tupleReader1 = zipTableReader.getTupleReader("1");
 			try
 			{
 				Collection<String> colNames = Lists.newArrayList(tupleReader1.colNamesIterator());
@@ -136,7 +136,7 @@ public class ZipTableReaderTest
 				tupleReader1.close();
 			}
 
-			RecordReader tupleReader2 = zipTableReader.getTupleReader("2");
+			TableReader tupleReader2 = zipTableReader.getTupleReader("2");
 			try
 			{
 				Collection<String> colNames = Lists.newArrayList(tupleReader2.colNamesIterator());
@@ -158,22 +158,22 @@ public class ZipTableReaderTest
 	@Test
 	public void iterator() throws IOException
 	{
-		ZipTableReader zipTableReader = new ZipTableReader(new ZipFile(ZIP_FILE));
+		ZipTableCollectionReader zipTableReader = new ZipTableCollectionReader(new ZipFile(ZIP_FILE));
 		try
 		{
-			Iterator<RecordReader> it = zipTableReader.iterator();
+			Iterator<TableReader> it = zipTableReader.iterator();
 			assertTrue(it.hasNext());
-			RecordReader tupleReader0 = it.next();
+			TableReader tupleReader0 = it.next();
 			assertNotNull(tupleReader0);
 			tupleReader0.close();
 
 			assertTrue(it.hasNext());
-			RecordReader tupleReader1 = it.next();
+			TableReader tupleReader1 = it.next();
 			assertNotNull(tupleReader1);
 			tupleReader1.close();
 
 			assertTrue(it.hasNext());
-			RecordReader tupleReader2 = it.next();
+			TableReader tupleReader2 = it.next();
 			assertNotNull(tupleReader2);
 			tupleReader2.close();
 

@@ -2,13 +2,27 @@ package org.molgenis.io;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.util.Iterator;
+
+import org.molgenis.Record;
+import org.molgenis.io.processor.CellProcessor;
 
 /**
- * Interface for reading multiple tables
+ * Interface for reading all rows of a table
  */
-public interface TableReader extends Iterable<RecordReader>, Closeable
+public interface TableReader extends Iterable<Record>, Closeable
 {
-	public RecordReader getTupleReader(String tableName) throws IOException;
+	/**
+	 * Returns an iterator over the corresponding column names for this Record
+	 * 
+	 * @return
+	 */
+	public Iterator<String> colNamesIterator() throws IOException;
 
-	public Iterable<String> getTableNames() throws IOException;
+	/**
+	 * Add a cell processor to process cell values
+	 * 
+	 * @param cellProcessor
+	 */
+	public void addCellProcessor(CellProcessor cellProcessor);
 }

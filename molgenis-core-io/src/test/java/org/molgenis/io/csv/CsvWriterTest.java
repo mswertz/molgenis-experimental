@@ -10,7 +10,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Arrays;
 
-import org.molgenis.io.Record;
+import org.molgenis.Record;
 import org.molgenis.io.processor.CellProcessor;
 import org.molgenis.io.record.MapRecord;
 import org.testng.annotations.Test;

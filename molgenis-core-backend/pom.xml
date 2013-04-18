@@ -40,8 +40,8 @@
 								<java classname="org.molgenis.generate.data.TestJpaGenerator"
 									classpathref="generate-classpath" failonerror="true">
 								</java>
-								<javac srcdir="${basedir}/src/test/java:${basedir}/src/test/resources" destdir="${basedir}/target/test-classes"
-									classpathref="generate-classpath">
+								<javac srcdir="${basedir}/src/test/java:${basedir}/src/test/resources"
+									destdir="${basedir}/target/test-classes" classpathref="generate-classpath">
 								</javac>
 							</tasks>
 						</configuration>
@@ -83,6 +83,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.1.1.Final</version>
 			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.1.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -133,11 +138,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>3.2.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
 			<version>3.2.1.RELEASE</version>
 		</dependency>
 		<dependency>

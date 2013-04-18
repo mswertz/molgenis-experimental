@@ -11,11 +11,11 @@ import java.util.List;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.molgenis.io.TableCollectionWriter;
 import org.molgenis.io.TableWriter;
-import org.molgenis.io.RecordWriter;
 import org.molgenis.io.processor.CellProcessor;
 
-public class ExcelWriter implements TableWriter
+public class ExcelWriter implements TableCollectionWriter
 {
 	private final Workbook workbook;
 	private final OutputStream os;
@@ -52,7 +52,7 @@ public class ExcelWriter implements TableWriter
 	}
 
 	@Override
-	public RecordWriter createTupleWriter(String tableName) throws IOException
+	public TableWriter createTupleWriter(String tableName) throws IOException
 	{
 		org.apache.poi.ss.usermodel.Sheet poiSheet = this.workbook.createSheet(tableName);
 		return new ExcelSheetWriter(poiSheet, cellProcessors);

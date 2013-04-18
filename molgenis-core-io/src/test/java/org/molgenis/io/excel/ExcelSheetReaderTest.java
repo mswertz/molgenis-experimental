@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.molgenis.io.Record;
+import org.molgenis.Record;
 import org.molgenis.io.processor.CellProcessor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

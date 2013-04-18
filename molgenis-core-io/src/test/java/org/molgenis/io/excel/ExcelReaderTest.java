@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import org.molgenis.io.Record;
-import org.molgenis.io.RecordReader;
+import org.molgenis.Record;
+import org.molgenis.io.TableReader;
 import org.molgenis.io.processor.CellProcessor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -48,7 +48,7 @@ public class ExcelReaderTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processHeader()).thenReturn(true).getMock();
 		excelReader.addCellProcessor(processor);
-		for (RecordReader sheetReader : excelReader)
+		for (TableReader sheetReader : excelReader)
 		{
 			for (@SuppressWarnings("unused")
 			Record tuple : sheetReader)
@@ -64,7 +64,7 @@ public class ExcelReaderTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processData()).thenReturn(true).getMock();
 		excelReader.addCellProcessor(processor);
-		for (RecordReader sheetReader : excelReader)
+		for (TableReader sheetReader : excelReader)
 			for (Record tuple : sheetReader)
 				tuple.get("col2");
 		verify(processor).process("val2");
@@ -98,7 +98,7 @@ public class ExcelReaderTest
 	@Test
 	public void iterator()
 	{
-		Iterator<RecordReader> it = excelReader.iterator();
+		Iterator<TableReader> it = excelReader.iterator();
 		assertTrue(it.hasNext());
 		assertNotNull(it.next());
 		assertTrue(it.hasNext());

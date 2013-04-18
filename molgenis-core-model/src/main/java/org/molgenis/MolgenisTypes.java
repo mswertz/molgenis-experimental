@@ -13,14 +13,9 @@ import org.molgenis.types.DecimalField;
 import org.molgenis.types.EmailField;
 import org.molgenis.types.EnumField;
 import org.molgenis.types.FieldType;
-import org.molgenis.types.FileField;
-import org.molgenis.types.FreemarkerField;
-import org.molgenis.types.HyperlinkField;
-import org.molgenis.types.ImageField;
 import org.molgenis.types.IntField;
 import org.molgenis.types.LongField;
 import org.molgenis.types.MrefField;
-import org.molgenis.types.OnoffField;
 import org.molgenis.types.RichtextField;
 import org.molgenis.types.StringField;
 import org.molgenis.types.TextField;
@@ -44,24 +39,24 @@ public class MolgenisTypes
 	{
 		if (!init)
 		{
+			addType(new StringField());
 			addType(new BoolField());
+			addType(new IntField());
+			addType(new DecimalField());
 			addType(new DateField());
 			addType(new DatetimeField());
-			addType(new DecimalField());
 			addType(new EnumField());
-			addType(new EmailField());
-			addType(new FileField());
-			addType(new ImageField());
-			addType(new HyperlinkField());
-			addType(new LongField());
-			addType(new MrefField());
-			addType(new OnoffField());
-			addType(new StringField());
-			addType(new TextField());
 			addType(new XrefField());
-			addType(new IntField());
+			addType(new MrefField());
+			addType(new TextField());
+			addType(new EmailField());
 			addType(new RichtextField());
-			addType(new FreemarkerField());
+			//TODO addType(new PasswordField());
+			//TODO addType(new FileField());
+			//TODO addType(new ImageField());
+			//TODO addType(new HyperlinkField());
+			//TODO addType(new LongField());
+			//TODO addType(new FreemarkerField());
 
 			init = true;
 		}

@@ -15,8 +15,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.molgenis.io.Record;
-import org.molgenis.io.RecordReader;
+import org.molgenis.Record;
+import org.molgenis.io.TableReader;
 import org.molgenis.io.processor.AbstractCellProcessor;
 import org.molgenis.io.processor.CellProcessor;
 import org.molgenis.io.record.MapRecord;
@@ -26,7 +26,7 @@ import org.molgenis.io.record.MapRecord;
  * 
  * @see <a href="http://tools.ietf.org/html/rfc4180">RFC 4180</a>
  */
-public class CsvReader implements RecordReader
+public class CsvReader implements TableReader
 {
 	private static final Charset CHARSET_UTF8 = Charset.forName("UTF-8");
 

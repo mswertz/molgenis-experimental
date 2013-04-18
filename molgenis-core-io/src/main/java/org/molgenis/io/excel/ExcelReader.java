@@ -12,11 +12,11 @@ import java.util.List;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.molgenis.io.TableCollectionReader;
 import org.molgenis.io.TableReader;
-import org.molgenis.io.RecordReader;
 import org.molgenis.io.processor.CellProcessor;
 
-public class ExcelReader implements TableReader, Closeable
+public class ExcelReader implements TableCollectionReader, Closeable
 {
 	private final Workbook workbook;
 	private final InputStream is;
@@ -80,9 +80,9 @@ public class ExcelReader implements TableReader, Closeable
 	}
 
 	@Override
-	public Iterator<RecordReader> iterator()
+	public Iterator<TableReader> iterator()
 	{
-		return new Iterator<RecordReader>()
+		return new Iterator<TableReader>()
 		{
 			private int i = 0;
 			private int nrSheets = getNumberOfSheets();
@@ -94,7 +94,7 @@ public class ExcelReader implements TableReader, Closeable
 			}
 
 			@Override
-			public RecordReader next()
+			public TableReader next()
 			{
 				return getSheet(i++);
 			}
@@ -115,7 +115,7 @@ public class ExcelReader implements TableReader, Closeable
 
 	@SuppressWarnings("resource")
 	@Override
-	public RecordReader getTupleReader(String tableName) throws IOException
+	public TableReader getTupleReader(String tableName) throws IOException
 	{
 		org.apache.poi.ss.usermodel.Sheet poiSheet = this.workbook.getSheet(tableName);
 		return poiSheet != null ? new ExcelSheetReader(poiSheet, hasHeader, this.cellProcessors) : null;

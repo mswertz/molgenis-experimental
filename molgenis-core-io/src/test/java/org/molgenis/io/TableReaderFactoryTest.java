@@ -78,7 +78,7 @@ public class TableReaderFactoryTest
 		File file = File.createTempFile("file", ".csv");
 		try
 		{
-			TableReader tableReader = TableReaderFactory.create(file);
+			TableCollectionReader tableReader = TableCollectionReaderFactory.create(file);
 			try
 			{
 				assertNotNull(tableReader.getTupleReader(FilenameUtils.getBaseName(file.getName())));
@@ -100,7 +100,7 @@ public class TableReaderFactoryTest
 		File file = File.createTempFile("file", ".txt");
 		try
 		{
-			TableReader tableReader = TableReaderFactory.create(file);
+			TableCollectionReader tableReader = TableCollectionReaderFactory.create(file);
 			try
 			{
 				assertNotNull(tableReader.getTupleReader(FilenameUtils.getBaseName(file.getName())));
@@ -122,7 +122,7 @@ public class TableReaderFactoryTest
 		File file = File.createTempFile("file", ".tsv");
 		try
 		{
-			TableReader tableReader = TableReaderFactory.create(file);
+			TableCollectionReader tableReader = TableCollectionReaderFactory.create(file);
 			try
 			{
 				assertNotNull(tableReader.getTupleReader(FilenameUtils.getBaseName(file.getName())));
@@ -141,7 +141,7 @@ public class TableReaderFactoryTest
 	@Test
 	public void createFile_zip() throws IOException, URISyntaxException
 	{
-		TableReader tableReader = TableReaderFactory.create(ZIP_FILE);
+		TableCollectionReader tableReader = TableCollectionReaderFactory.create(ZIP_FILE);
 		try
 		{
 			assertNotNull(tableReader.getTupleReader("0"));
@@ -160,7 +160,7 @@ public class TableReaderFactoryTest
 		File file = File.createTempFile("file", ".burp");
 		try
 		{
-			TableReader tableReader = TableReaderFactory.create(file);
+			TableCollectionReader tableReader = TableCollectionReaderFactory.create(file);
 			try
 			{
 				assertNotNull(tableReader.getTupleReader(FilenameUtils.getBaseName(file.getName())));
@@ -183,7 +183,7 @@ public class TableReaderFactoryTest
 		File file2 = File.createTempFile("file2", ".tsv");
 		try
 		{
-			TableReader tableReader = TableReaderFactory.create(Arrays.asList(file1, file2));
+			TableCollectionReader tableReader = TableCollectionReaderFactory.create(Arrays.asList(file1, file2));
 			try
 			{
 				assertNotNull(tableReader.getTupleReader(FilenameUtils.getBaseName(file1.getName())));

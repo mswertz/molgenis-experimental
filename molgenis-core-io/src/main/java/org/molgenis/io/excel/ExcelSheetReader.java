@@ -13,14 +13,15 @@ import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
-import org.molgenis.io.Record;
-import org.molgenis.io.RecordException;
-import org.molgenis.io.RecordReader;
+import org.molgenis.Record;
+import org.molgenis.RecordException;
+import org.molgenis.io.TableReader;
 import org.molgenis.io.processor.AbstractCellProcessor;
 import org.molgenis.io.processor.CellProcessor;
+import org.molgenis.io.record.AbstractRecord;
 import org.molgenis.model.EntityModel;
 
-public class ExcelSheetReader implements RecordReader
+public class ExcelSheetReader implements TableReader
 {
 	private final org.apache.poi.ss.usermodel.Sheet sheet;
 	private final boolean hasHeader;
@@ -87,7 +88,7 @@ public class ExcelSheetReader implements RecordReader
 			@Override
 			public Record next()
 			{
-				return new RowIndexTuple(it.next(), colNamesMap, cellProcessors);
+				return new RowIndexRecord(it.next(), colNamesMap, cellProcessors);
 			}
 
 			@Override
@@ -185,7 +186,7 @@ public class ExcelSheetReader implements RecordReader
 		return AbstractCellProcessor.processCell(value, false, cellProcessors);
 	}
 
-	private static class RowIndexTuple implements Record
+	private static class RowIndexRecord extends AbstractRecord
 	{
 		private static final long serialVersionUID = 1L;
 
@@ -193,7 +194,7 @@ public class ExcelSheetReader implements RecordReader
 		private final Map<String, Integer> colNamesMap;
 		private final List<CellProcessor> cellProcessors;
 
-		public RowIndexTuple(Row row, Map<String, Integer> colNamesMap, List<CellProcessor> cellProcessors)
+		public RowIndexRecord(Row row, Map<String, Integer> colNamesMap, List<CellProcessor> cellProcessors)
 		{
 			if (row == null) throw new IllegalArgumentException("row is null");
 			if (colNamesMap == null) throw new IllegalArgumentException("column names map is null");

@@ -17,11 +17,12 @@
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<configuration>
+					<jettyConfig>src/main/webapp/WEB-INF/jetty.xml</jettyConfig>
 					<scanIntervalSeconds>3</scanIntervalSeconds>
 					<stopPort>9999</stopPort>
 					<stopKey>jetty-stop</stopKey>
 					<!-- include test sources -->
-					<useTestClasspath>true</useTestClasspath>
+					<useTestScope>true</useTestScope>
 					<webAppConfig>
 						<contextPath>/</contextPath>
 						<baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
@@ -29,6 +30,39 @@
 						</baseResource>
 					</webAppConfig>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>javax.transaction</groupId>
+						<artifactId>jta</artifactId>
+						<version>1.1</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<!-- http://docs.codehaus.org/display/BTM/Maven2 -->
+						<groupId>org.codehaus.btm</groupId>
+						<artifactId>btm</artifactId>
+						<version>2.1.3</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>org.codehaus.btm</groupId>
+						<artifactId>btm-jetty7-lifecycle</artifactId>
+						<version>2.1.3</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.22</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>javax.inject</groupId>
+						<artifactId>javax.inject</artifactId>
+						<version>1</version>
+					</dependency>
+				</dependencies>
+
 			</plugin>
 
 			<!-- generate test sources -->
@@ -47,9 +81,9 @@
 								</path>
 								<javac srcdir="${basedir}/src/test/java" destdir="${basedir}/target/test-classes"
 									classpathref="generate-classpath">
-									<include name="org/molgenis/generate/data/TestJpaGenerator.java" />
+									<include name="org/molgenis/generate/TestModelGenerator.java" />
 								</javac>
-								<java classname="org.molgenis.generate.data.TestJpaGenerator"
+								<java classname="org.molgenis.generate.TestModelGenerator"
 									classpathref="generate-classpath" failonerror="true">
 								</java>
 								<javac srcdir="${basedir}/src/test/java:${basedir}/src/test/resources"
@@ -95,20 +129,24 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>3.2.1.RELEASE</version>
 		</dependency>
-
-		<!-- <dependency> <groupId>com.sun.jersey</groupId> <artifactId>jersey-server</artifactId> 
-			<version>1.16</version> </dependency> <dependency> <groupId>com.sun.jersey</groupId> 
-			<artifactId>jersey-json</artifactId> <version>1.16</version> </dependency> 
-			<dependency> <groupId>com.sun.jersey.contribs</groupId> <artifactId>jersey-freemarker</artifactId> 
-			<version>1.16</version> </dependency> Jersey + Spring <dependency> <groupId>com.sun.jersey.contribs</groupId> 
-			<artifactId>jersey-spring</artifactId> <version>1.16</version> <exclusions> 
-			<exclusion> <groupId>org.springframework</groupId> <artifactId>spring</artifactId> 
-			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
-			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-web</artifactId> 
-			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-beans</artifactId> 
-			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-context</artifactId> 
-			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-asm</artifactId> 
-			</exclusion> <exclusion> <groupId>org.springframework</groupId> <artifactId>spring-aop</artifactId> 
-			</exclusion> </exclusions> </dependency> -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>3.2.1.RELEASE</version>
+		</dependency>
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.12</version>
+		</dependency>
+		<!-- used for local tests with JTA (equal to container) -->
+<!-- 		<dependency>
+			 http://docs.codehaus.org/display/BTM/Maven2
+			<groupId>org.codehaus.btm</groupId>
+			<artifactId>btm</artifactId>
+			<version>2.1.3</version>
+			<scope>test</scope>
+		</dependency> -->
 	</dependencies>
 </project>

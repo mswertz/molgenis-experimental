@@ -3,9 +3,33 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 
+	<!-- expose the dataSource via jndi -->
+	<resource-ref>
+		<description>My DataSource Reference</description>
+		<res-ref-name>jdbc/molgenis</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<!-- expose the transaction via jndi -->
+	<resource-ref>
+		<description>UserTransaction</description>
+		<res-ref-name>UserTransaction</res-ref-name>
+		<res-type>javax.transaction.UserTransaction</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+	<!-- expose the transaction manager via jndi -->
+	<resource-ref>
+		<description>TransactionManager</description>
+		<res-ref-name>javax.transaction.TransactionManager</res-ref-name>
+		<res-type>javax.transaction.TransactionManager</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value>
+		<param-value>classpath:webApplicationContext.xml</param-value>
 	</context-param>
 
 	<listener>

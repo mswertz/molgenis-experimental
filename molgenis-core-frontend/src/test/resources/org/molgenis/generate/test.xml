@@ -1,0 +1,18 @@
+<molgenis name="test">
+	<module name="test">
+		<entity name="Person" xref_label="DisplayName">
+			<!-- test -->
+			<description>This is a test</description>
+			<field name="id" type="autoid" />
+			<field name="DisplayName" unique="true"/>
+			<field name="FirstName" />
+			<field name="LastName" />
+			<field name="Birthday" type="date" />
+		</entity>
+		<entity name="Address">
+			<field name="id" type="autoid" />
+			<field name="Street" />
+			<field name="Person" type="mref" xref_entity="Person"/>
+		</entity>
+	</module>
+</molgenis>

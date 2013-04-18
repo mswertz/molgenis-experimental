@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.molgenis.io.Record;
+import org.molgenis.Record;
 import org.molgenis.io.processor.CellProcessor;
 import org.testng.annotations.Test;
 

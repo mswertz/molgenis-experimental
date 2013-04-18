@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.molgenis.Record;
 import org.molgenis.io.ListEscapeUtils;
-import org.molgenis.io.Record;
-import org.molgenis.io.RecordWriter;
+import org.molgenis.io.TableWriter;
 import org.molgenis.io.processor.AbstractCellProcessor;
 import org.molgenis.io.processor.CellProcessor;
 
-public class ExcelSheetWriter implements RecordWriter
+public class ExcelSheetWriter implements TableWriter
 {
 	private final org.apache.poi.ss.usermodel.Sheet sheet;
 	private int row;

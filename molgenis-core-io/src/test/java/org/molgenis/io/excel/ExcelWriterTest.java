@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
 
-import org.molgenis.io.Record;
-import org.molgenis.io.RecordWriter;
+import org.molgenis.Record;
+import org.molgenis.io.TableWriter;
 import org.molgenis.io.excel.ExcelWriter.FileFormat;
 import org.molgenis.io.processor.CellProcessor;
 import org.molgenis.io.record.MapRecord;
@@ -87,7 +87,7 @@ public class ExcelWriterTest
 		excelWriter.addCellProcessor(processor);
 		try
 		{
-			RecordWriter sheetWriter = excelWriter.createTupleWriter("sheet");
+			TableWriter sheetWriter = excelWriter.createTupleWriter("sheet");
 			sheetWriter.writeColNames(Arrays.asList("col1", "col2"));
 			sheetWriter.write(row1);
 		}
@@ -120,7 +120,7 @@ public class ExcelWriterTest
 		excelWriter.addCellProcessor(processor);
 		try
 		{
-			RecordWriter sheetWriter = excelWriter.createTupleWriter("sheet");
+			TableWriter sheetWriter = excelWriter.createTupleWriter("sheet");
 			sheetWriter.writeColNames(Arrays.asList("col1", "col2"));
 			sheetWriter.write(dataTuple);
 		}
