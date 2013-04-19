@@ -77,16 +77,4 @@ public class XrefTestController extends AbstractXrefController
 		}
 		return data;
 	}
-
-	public static class XrefResult
-	{
-		public XrefResult(String id, String text)
-		{
-			this.id = id;
-			this.text = text;
-		}
-
-		public String id;
-		public String text;
-	}
 }

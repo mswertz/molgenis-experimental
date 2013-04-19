@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import test.test.Address;
 import test.test.Person;
 
-@ContextConfiguration("classpath:applicationContext.xml")
+@ContextConfiguration("classpath:testApplicationContext.xml")
 public class TestAddData extends AbstractTransactionalTestNGSpringContextTests
 {
 	@Autowired

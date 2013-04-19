@@ -14,7 +14,7 @@ package ${package};
 import org.molgenis.model.EntityModel;
 import org.molgenis.model.FieldModel;
 //data
-import org.molgenis.io.Record;
+import org.molgenis.Record;
 import org.molgenis.backend.IdentifiableRecord;
 import org.molgenis.backend.TypeUtils;
 </#if>

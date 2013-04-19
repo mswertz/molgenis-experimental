@@ -13,6 +13,8 @@ import org.molgenis.types.DecimalField;
 import org.molgenis.types.EmailField;
 import org.molgenis.types.EnumField;
 import org.molgenis.types.FieldType;
+import org.molgenis.types.FileField;
+import org.molgenis.types.FreemarkerField;
 import org.molgenis.types.IntField;
 import org.molgenis.types.LongField;
 import org.molgenis.types.MrefField;
@@ -52,11 +54,11 @@ public class MolgenisTypes
 			addType(new EmailField());
 			addType(new RichtextField());
 			//TODO addType(new PasswordField());
-			//TODO addType(new FileField());
+			addType(new FileField());
 			//TODO addType(new ImageField());
 			//TODO addType(new HyperlinkField());
 			//TODO addType(new LongField());
-			//TODO addType(new FreemarkerField());
+			addType(new FreemarkerField());
 
 			init = true;
 		}

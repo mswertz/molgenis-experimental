@@ -294,5 +294,7 @@
 		<module>molgenis-core-io</module>		
 		<module>molgenis-core-backend</module>
 		<module>molgenis-core-frontend</module>
+		<module>molgenis-demo-app</module>
+		<module>molgenis-core-views</module>
 	</modules>
 </project>

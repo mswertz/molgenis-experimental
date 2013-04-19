@@ -2,9 +2,7 @@ package org.molgenis.controllers;
 
 import java.util.List;
 
-import org.molgenis.controllers.XrefTestController.XrefResult;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,4 +33,16 @@ public abstract class AbstractXrefController
 			String entity,
 			@RequestParam("ids")
 			String[] ids);
+	
+	public static class XrefResult
+	{
+		public XrefResult(String id, String text)
+		{
+			this.id = id;
+			this.text = text;
+		}
+
+		public String id;
+		public String text;
+	}
 }
