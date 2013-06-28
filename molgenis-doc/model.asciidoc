@@ -1,0 +1,246 @@
+MOLGENIS · domain modeling
+==========================
+MOLGENIS
+:title: MOLGENIS - domain model
+:description: Introduction into MOLGENIS domain specific modeling
+:brand: MOLGENIS
+:doctype: book
+:toc:
+:glyphicons: http://glyphicons.com[Glyphicons]
+
+
+= Introduction
+
+MOLGENIS comes with an XML language to easily model your 'domain entities' that define building blocks for your app.
+
+When you store <yourfile>.xml files in `src/main/resources/org/domain` the 
+MOLGENIS generators will automatically generate ready to use components for your model.
+The can then be used by your app, or by other apps that extend yours. Similarly, you can generate test components by putting <yourfile>.xml files in `src/test/resources/org/domain`.
+
+See link:getting-started.html[Getting started].
+
+The MOLGENIS language consists of the following commands:
+
+= <molgenis>
+
+The `<molgenis>` element is the root of each MOLGENIS model definition file.
+
+Example usage of the <molgenis> element:
+
+----
+<molgenis name="my.package">
+  <description>This is my first module.
+  </description>
+  <entity name="entity1">
+    <field name="f1" type="string" unique="true"/>	
+    <field name="f2" type="string"/>
+    <field name="f3" type="string"/>
+  </entity>
+  <entity name="entity2">
+    <field name="f1" type="string" unique="true"/>	
+    <field name="f2" type="string"/>
+    <field name="f3" type="string"/>
+  </entity>
+  ...
+</molgenis>
+----
+
+== Attributes
+* `name="azA-Z_"` -- Globally unique name for this module (required). MOLGENIS generator will use this for packages names.
+
+== Child elements
+* `<description>` -- Maximum one description block for this module.
+* `<entity>` -- Zero or more entity definitions.
+* `<menu>` -- Zero or more menu definitions
+* `<form>` -- Zero or more form definitions
+
+= <entity>
+
+The `<entity>` element defines the structure of one data entity and will result in a table in the database, and several Java classes you can use as building blocks. Example usage of the <entity> element:
+
+----
+<entity name="my_class">
+  <description>This is my first entity.</description>
+  <field name="name" type="string"/>
+  <field name="investigation" type="string"/>
+  <unique fields="name,investigation"/>
+</entity>
+
+<entity name="my_subclass" extends="my_class">
+  <description>This class extends my_class and will have fields name,investigation and otherField</description>
+  <field name="otherField"/>
+</entity>
+----
+
+== Attributes
+
+* `name="a-zA-Z_"` -- Globally unique name for this entity (required, can only contain "a-zA-Z_").
+* `label="Nice name"` -- A user-friendly alias to show as form header (defaults to `name`).
+* `extends="otherEntity"` -- Extend another entity to inherit the fields of its 'superclass'.
+* `abstract="true"` -- Mark this entity as 'interface' that can only be extended but not used directly.
+* `implements="otherEntity"` -- Extend an abstract entity.
+* `xref_label="aFieldName"` -- Defines what field should be used by lookup lists, i.e. xref fields to this entity (default: first non-auto unique field)
+* `decorator="package.DecoratorClass"` -- You can add custom code to change the way entities are added, updated and removed. See TODO.
+
+== Child elements
+ * Zero or one `<description>` to describe this entity; a description can contain xhtml.
+ * Zero or more `<field>` that detail entity structure.
+ * Zero or more `<unique>` indicating unique constraints on field(s).
+
+== Notes
+* Cascading deletes can be configured via `<field>` where you can set `xref_cascade="true"`. See xref:<field>[]
+
+= <field>
+
+A `<field>` defines one property of an entity (i.e., a table column). 
+Example usage of the `<field>` element:
+
+----
+<field name="field_name" description="this is my first field of type string"/>
+<field name="field_name" type="autoid" description="this is a id field, unique autonum integer"/>
+<field name="field_name" type="xref" xref_entity="other_entity"
+       description="this is a crossrerence to otherentity"/>
+<field name="field_name" type="enum" enum_options="[option1,option2]"
+       description="this is field of type enum"/>
+----
+
+== Attributes:
+
+* `name="a-zA-Z_"` -- unique name within this entity (required, can only contain a-zA-Z_).
+* `label="Nice field name"` -- A user-friendly alias to in user interfaces (default: copied from name).
+* `type="aType"` -- type of data stored in this field (default: string). Valid types:
+** `type="autoid"` -- auto incremented column (useful for entity ID).
+** `type="string"`: a single line text string of variable length, max 255 chars.
+** `type="int"`: a natural number.
+** `type="boolean"`: a boolean.
+** `type="decimal"`: a decimal number.
+** `type="date"`: a date.
+** `type="datetime"`: a date that includes the time.
+** `type="file"`: an uploaded file.
+** `type="text"`: a multiline textarea of max 2gb.
+** `type="xref"`: reference to another entity. Requires specification of that entity using `xref_entity`.
+** `type="mref"`: many-to-many reference another entity. Requires specification of that entity using `xref_entity`.
+** `type="enum"`: references to a fixed look-up list options. Requires specification of the enum using `enum_options`.
+* `description="Some description"` -- Add decription visibible in user interface and documentation.
+* `unique="true"` -- Require values of this field must be unique within the entity (default: "false").
+* `nillable="true"` -- Require that this field cannot be left empty (default: "false").
+* `readonly="true"` -- Disables editing of this field after first save (default: "false").
+* `length="12"` -- Require type="string" or type="text" to have limited length (default: 255 for string).
+* `xref_entity="otherEntity"` -- Define xref/mref link to another entity (i.e. 'foreign key')
+* `xref_cascade="true"` -- Delete this entity when xref_entity is deleted (default: "false").
+* `enum_options="[value1,value2]"` -- Set options for type="enum".
+* `default="aValue"` -- Default value for this field.
+* `hidden="true"` -- Hide this fields from user interfaces. Requires nillable="true" or auto="true" or default!="".
+
+== Child elements
+
+none.
+
+= <unique>
+
+A `<unique>` defines which properties of an entity (i.e., table columns) should be unique. There are two ways to make a field unique.
+
+== A single column is unique
+
+This example below shows that field "f1" is defined unique via unique="true". This means that there cannot be two entity instances - two rows in table entity1 - with the same value “x” in the f1 column.
+
+----
+<molgenis name="example">	
+  <entity name="entity1">
+    <field name="f1" unique="true"/>	
+    <field name="f2" />
+    <field name="f3" />
+  </entity>	
+</molgenis>
+----
+
+== A combination of two or more columns is unique
+
+The example below shows that the combination of field “f1” and “f2” is defined as unique via the <unique> element. This means that there cannot be two entity instances - two rows in table entity1 - with the same value “x” in the f1 AND f2 column paired.
+
+----
+<molgenis name="my.package">	
+  <entity name="entity1">
+    <field name="f1" />	
+    <field name="f2" />
+    <field name="f3" />
+    <unique fields="f1,f2"/>
+  </entity>	
+</molgenis>
+----
+
+== Attributes
+* `fields="field1,field2` -- Comma separated enumeration of the unique fields(required).
+
+== Child elements
+none.
+
+= <menu>
+
+The `<menu>` element allows the autogeneration of an app with a menu on the left of the user interface and/or in tabs for each contained subscreen (menu, form, plugin). 
+
+Usage example of the `<menu>` element:
+
+----
+<molgenis name="my.package">
+  <menu name="my_mainmenu">
+    <form name="myfirsttab" entity="an_entity1" />
+    <menu name="my_submenu">
+      <form name="mythirdtab" entity="an_entity2" />
+      <form name="myfourthab" entity="an_entity3" />
+    </menu>
+  </menu>
+</module>	
+----
+
+== Attributes
+
+* `name="a-zA-Z_"` -- unique name (required).
+* `startwith="name"` -- defines which item is first shown (default: first sub element).
+* `position="top_left"` -- layout of this menu, either `top_left`, `top_right` or `left` (default: top_left)
+
+== Child elements
+ * Zero or more `<menu>` elements to denote subscreen(s).
+ * Zero or more `<form>` elements to denote subscreen(s).
+ * Zero or more `<plugin>` elements to denote subscreen(s).
+
+= <form>
+
+The `<form>` element is used to define a user element that shows the records of a certain entity on screen (including insert, update, save, search, etc). A form may have tabbed `<menu>` or un-tabbed `<form>` or `<plugin>` subscreens which are defined by nesting other user interface elements. 
+
+Example usage of `<form>` element:
+
+----
+<form name="myname" entity="myentity">
+  <form name="myname" entity="mysubentity" sortby="name"/>
+</form>
+	
+<form name="myname" entity="myentity" viewtype="list" limit="10"/>
+----
+
+== Attributes
+* `name="a-zA-Z_"` -- unique name for this screen element (required)
+* `entity="anEntity"` -- the entity shown in this form (required).
+* `label="Nice screen name"` -- A user-friendly alias to show as form header (default: copied from name).
+* `viewtype="list"` -- Initial view either per 'record' or 'list' (default: "record").
+* `sortby="aField"` -- Initial sort order (default: first unique field or autoid). 
+* `limit="10"` -- Initial limit of many records must be shown (default: "5").
+* `readonly="true"` -- Can the records be edited or is the form readonly (default: "false").
+* `compact_view="field1,field2"` -- When in 'record' only show particular fields until 'view details' is pressed.
+* `commands="package.Class1,package.Class2"` -- Reference to custom command classes shown as action.
+* `hide_fields="field1,field2"` -- CSV list of field to hide (hidden fields must be nillable="true" or auto="true" or default!="".
+
+== Child elements
+ * Zero or more `<menu>` elements to denote subscreen(s).
+ * Zero or more `<form>` elements to denote subscreen(s). Subforms are automatically based on foreign key (xref) relations.
+ * Zero or more `<plugin>` elements to denote subscreen(s).
+
+= <plugin>
+
+The `<plugin>` element allows to plug-in custom screen elements into the MOLGENIS user interface next to the auto-generated `<form>` and `<menu>` elements. The implementation of how to add your own logic to the plug-in is described in the <TODO>.
+
+
+
+
+
+

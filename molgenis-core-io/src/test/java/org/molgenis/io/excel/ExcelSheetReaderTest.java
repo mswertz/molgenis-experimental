@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.processor.CellProcessor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -47,7 +47,7 @@ public class ExcelSheetReaderTest
 		CellProcessor processor = when(mock(CellProcessor.class).processHeader()).thenReturn(true).getMock();
 		excelSheetReader.addCellProcessor(processor);
 		for (@SuppressWarnings("unused")
-		Record tuple : excelSheetReader)
+		Entity tuple : excelSheetReader)
 		{
 		}
 		verify(processor).process("col1");
@@ -59,7 +59,7 @@ public class ExcelSheetReaderTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processData()).thenReturn(true).getMock();
 		excelSheetReader.addCellProcessor(processor);
-		for (Record tuple : excelSheetReader)
+		for (Entity tuple : excelSheetReader)
 			tuple.get("col2");
 		verify(processor).process("val2");
 		verify(processor).process("val4");
@@ -91,26 +91,26 @@ public class ExcelSheetReaderTest
 	@Test
 	public void iterator()
 	{
-		Iterator<Record> it = excelSheetReader.iterator();
+		Iterator<Entity> it = excelSheetReader.iterator();
 		assertTrue(it.hasNext());
 
-		Record row1 = it.next();
+		Entity row1 = it.next();
 		assertEquals(row1.get("col1"), "val1");
 		assertEquals(row1.get("col2"), "val2");
 		assertTrue(it.hasNext());
 
-		Record row2 = it.next();
+		Entity row2 = it.next();
 		assertEquals(row2.get("col1"), "val3");
 		assertEquals(row2.get("col2"), "val4");
 		assertTrue(it.hasNext());
 
-		Record row3 = it.next();
+		Entity row3 = it.next();
 		assertEquals(row3.get("col1"), "XXX");
 		assertEquals(row3.get("col2"), "val6");
 		assertTrue(it.hasNext());
 
 		// test number cell (col1) and formula cell (col2)
-		Record row4 = it.next();
+		Entity row4 = it.next();
 		assertEquals(row4.get("col1"), "1.2");
 		assertEquals(row4.get("col2"), "2.4");
 		assertFalse(it.hasNext());
@@ -125,26 +125,26 @@ public class ExcelSheetReaderTest
 		assertTrue(colNamesIt.hasNext());
 		assertEquals(colNamesIt.next(), "col2");
 
-		Iterator<Record> it = excelSheetReader.iterator();
+		Iterator<Entity> it = excelSheetReader.iterator();
 		assertTrue(it.hasNext());
 
-		Record row1 = it.next();
+		Entity row1 = it.next();
 		assertEquals(row1.get("col1"), "val1");
 		assertEquals(row1.get("col2"), "val2");
 		assertTrue(it.hasNext());
 
-		Record row2 = it.next();
+		Entity row2 = it.next();
 		assertEquals(row2.get("col1"), "val3");
 		assertEquals(row2.get("col2"), "val4");
 		assertTrue(it.hasNext());
 
-		Record row3 = it.next();
+		Entity row3 = it.next();
 		assertEquals(row3.get("col1"), "XXX");
 		assertEquals(row3.get("col2"), "val6");
 		assertTrue(it.hasNext());
 
 		// test number cell (col1) and formula cell (col2)
-		Record row4 = it.next();
+		Entity row4 = it.next();
 		assertEquals(row4.get("col1"), "1.2");
 		assertEquals(row4.get("col2"), "2.4");
 		assertFalse(it.hasNext());

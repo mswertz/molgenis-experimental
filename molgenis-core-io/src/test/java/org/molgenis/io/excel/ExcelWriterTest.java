@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
+import org.molgenis.MapEntity;
 import org.molgenis.io.TableWriter;
 import org.molgenis.io.excel.ExcelWriter.FileFormat;
 import org.molgenis.io.processor.CellProcessor;
-import org.molgenis.io.record.MapRecord;
 import org.molgenis.model.EntityModel;
 import org.molgenis.model.FieldModel;
 import org.testng.annotations.Test;
@@ -69,7 +69,7 @@ public class ExcelWriterTest
 	public void addCellProcessor_header() throws IOException
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processHeader()).thenReturn(true).getMock();
-		Record headerTuple = mock(Record.class);
+		Entity headerTuple = mock(Entity.class);
 		when(headerTuple.size()).thenReturn(2);
 		
 		EntityModel m = new EntityModel();
@@ -78,7 +78,7 @@ public class ExcelWriterTest
 		
 		when(headerTuple.getModel()).thenReturn(m);
 
-		MapRecord row1 = new MapRecord();
+		MapEntity row1 = new MapEntity();
 		row1.set("col1", "val1");
 		row1.set("col2", "val2");
 
@@ -104,7 +104,7 @@ public class ExcelWriterTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processData()).thenReturn(true).getMock();
 
-		Record dataTuple = mock(Record.class);
+		Entity dataTuple = mock(Entity.class);
 		when(dataTuple.size()).thenReturn(2);
 		when(dataTuple.get("col1")).thenReturn("val1");
 		when(dataTuple.get("col2")).thenReturn("val2");

@@ -1,0 +1,132 @@
+MOLGENIS · introduction
+=======================
+MOLGENIS
+:title: MOLGENIS manual
+:description: Introduction into MOLGENIS
+:brand: MOLGENIS
+:doctype: book
+:toc:
+:glyphicons: http://glyphicons.com[Glyphicons]
+
+= About
+
+MOLGENIS is a modular platform for web apps which is currently mainly used for life sciences.
+You can use MOLGENIS to create your own apps. Also there are many pre-existing apps that you can include into your project.
+
+= App structure
+
+A MOLGENIS app is a maven module that extends the molgenis/pom.xml with MOLGENIS magic (about maven).
+Each app can include other apps as so to compose more complex applications. 
+All apps are bundled into one multi-module maven project.
+
+To make the magic work we use the following conventions:
+
+[options="linenums"]
+----
+molgenis                        #molgenis root project
+pom.xml                         #molgenis maven pom.xml
++--molgenis-module-X            #example of an app module (maven standard)
+   +--pom.xml                   #specific pom configuration
+   +--molgenis.properties       #properties that override default settings
+   +--src
+      +--main
+         +--java
+            +--org/molgenis/controllers    #java code of controllers
+            +--org/molgenis/views          #java code of views
+            +--org/molgenis/package		   #any business logic that is not controller or view
+         +--resources
+            +--org/molgenis/domain         #xml of molgenis models (used by generator)
+            +--org/molgenis/views          #freemarker templates (if any)
+      +--test
+         +--java
+           +--org/molgenis/controllers     #test code for your controllers
+           +--org/molgenis/package         #test code for your business logic
+         +--resources
+            +--org/molgenis/domain         #xml of molgenis models for testing only
+   +--target
+      +--generated-sources
+         +--main/java                      #molgenis auto generated code from models in src/main/resources/org/molgenis/models
+         +--test/java                      #molgenis auto generated code from modesl in src/main/resources/org/molgenis/models
+----
+
+= User interface
+
+MOLGENIS apps are centered on stateless REST controllers using JAX-RS.
+
+* Controllers in org.molgenis.controllers package are started automatically
+* MolgenisController superclass gives methods to quickly create user interface view
+
+.Controller and View example
+[options="linenums"]
+----
+package org.molgenis.controllers;
+
+import org.molgenis.views;
+
+@Path("examples/helloworld")
+public class ExampleHelloWorldController extends MolgenisController
+{
+	@GET
+	/** Create div containing h1, paragraph and form to change*/
+	public Div helloWorld(@QueryParam("name") String name)
+	{
+		return div(
+			h1("Hello World), p("Hello "+name+"!"), form(
+				string("name").label("Name:"), submit("Change name")
+			)
+		);
+		
+		//above uses factory methods to construct
+		//<div><h1>hello world</h1><p>Hello name</p>
+		//<form ...><input ...><input ...></form>
+		//</div>
+	}
+}
+----
+
+= Using the Database
+
+MOLGENIS data entities (see below) are stored in the Database. 
+You can access the database in your controllers as follows:
+
+.Using database in controllers
+----
+package org.molgenis.controllers;
+
+@Path("examples/database")
+public class ExampleDatabaseController extends MolgenisController
+{
+	@Autowire
+	Database db;
+	
+	/** List data in database as fat table */
+	@GET
+	public Table list()
+	{
+		return table(db.query(Sample.class).limit(10));
+	}
+}
+----
+
+= Generating data entities
+
+MOLGENIS automatically generates java components from *.xml files in /src/main/resources/org/molgenis/models.
+Generated components include the data entities as used above with Database.
+
+.Example model
+----
+<molgenis>
+	<entity name="Study">
+		<field name="id" type="autoid">
+		<field name="Name" unique="true"/>
+		<field name="Samples" type="mref" xref_entity="Sample"/>
+	</entity>
+	<entity name="Sample">
+		<field name="id" type="autoid"/>
+		<field name="Name" unique="true"/>
+	</entity>
+</molgenis>
+----
+
+See [model_reference] for advanced topics such as object orientation, foreign keys, generation of documentation etc.
+

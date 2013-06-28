@@ -4,13 +4,13 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.processor.CellProcessor;
 
 /**
  * Interface for reading all rows of a table
  */
-public interface TableReader extends Iterable<Record>, Closeable
+public interface TableReader extends Iterable<Entity>, Closeable
 {
 	/**
 	 * Returns an iterator over the corresponding column names for this Record

@@ -3,7 +3,7 @@ package org.molgenis.io;
 import java.io.Closeable;
 import java.io.IOException;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.processor.CellProcessor;
 
 public interface TableWriter extends Closeable
@@ -11,7 +11,7 @@ public interface TableWriter extends Closeable
 	/**
 	 * write column names header
 	 * 
-	 * @param Record
+	 * @param Entity
 	 * @throws IOException
 	 */
 	public void writeColNames(Iterable<String> colNames) throws IOException;
@@ -22,7 +22,7 @@ public interface TableWriter extends Closeable
 	 * @param Record
 	 * @throws IOException
 	 */
-	public void write(Record Record) throws IOException;
+	public void write(Entity Record) throws IOException;
 
 	/**
 	 * Add a cell processor to process cell values

@@ -21,7 +21,7 @@ import org.molgenis.util.cmdline.Option;
 import org.molgenis.util.cmdline.Option.Type;
 
 /**
- * Option to parameterize the {@link Molgenis} and the
+ * Option to parameterize the {@link MolgenisTest} and the
  * {@link org.molgenis.framework.server.MolgenisServer}
  * 
  * @author Morris Swertz

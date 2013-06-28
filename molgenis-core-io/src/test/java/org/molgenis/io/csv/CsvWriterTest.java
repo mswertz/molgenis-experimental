@@ -10,9 +10,9 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Arrays;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
+import org.molgenis.MapEntity;
 import org.molgenis.io.processor.CellProcessor;
-import org.molgenis.io.record.MapRecord;
 import org.testng.annotations.Test;
 
 public class CsvWriterTest
@@ -29,7 +29,7 @@ public class CsvWriterTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processHeader()).thenReturn(true).getMock();
 
-		MapRecord tuple = new MapRecord();
+		MapEntity tuple = new MapEntity();
 		tuple.set("col1", "val1");
 		tuple.set("col2", "val2");
 
@@ -53,7 +53,7 @@ public class CsvWriterTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processData()).thenReturn(true).getMock();
 
-		Record dataTuple = mock(Record.class);
+		Entity dataTuple = mock(Entity.class);
 		when(dataTuple.size()).thenReturn(2);
 		when(dataTuple.get("0")).thenReturn("val1");
 		when(dataTuple.get("1")).thenReturn("val2");
@@ -80,7 +80,7 @@ public class CsvWriterTest
 		try
 		{
 			csvWriter.writeColNames(Arrays.asList("col1", "col2"));
-			MapRecord row1 = new MapRecord();
+			MapEntity row1 = new MapEntity();
 			row1.set("col1", "val1");
 			row1.set("col2", "val2");
 			csvWriter.write(row1);
@@ -100,7 +100,7 @@ public class CsvWriterTest
 		try
 		{
 			csvWriter.writeColNames(Arrays.asList("col1", "col2"));
-			MapRecord row1 = new MapRecord();
+			MapEntity row1 = new MapEntity();
 			row1.set("col1", "val1");
 			row1.set("col2", "val2");
 			csvWriter.write(row1);

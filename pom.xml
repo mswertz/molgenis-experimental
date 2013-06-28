@@ -65,13 +65,13 @@
 						</compilerArguments>
 					</configuration>
 				</plugin>
-				<!-- specify plugin version -->
+				<!-- use war 2.3 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.3</version>
 				</plugin>
-				<!-- specify plugin version -->
+				<!-- use jar 2.4 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -89,43 +89,8 @@
 					</configuration>
 
 				</plugin>
-				<!-- specify plugin version -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.6</version>
-				</plugin>
-				<!-- specify plugin version -->
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>jaxb2-maven-plugin</artifactId>
-					<version>1.5</version>
-				</plugin>
-				<!-- specify plugin version -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.7</version>
-				</plugin>
-				<!-- specify plugin version -->
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>1.7</version>
-				</plugin>
-				<!-- specify plugin version -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-site-plugin</artifactId>
-					<version>3.2</version>
-				</plugin>
-				<!-- specify plugin version -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>2.2.1</version>
-				</plugin>
-				<!-- servlet container -->
+
+				<!-- enable jetty -->
 				<plugin>
 					<groupId>org.mortbay.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
@@ -134,16 +99,18 @@
 						<scanIntervalSeconds>3</scanIntervalSeconds>
 						<stopPort>9999</stopPort>
 						<stopKey>jetty-stop</stopKey>
-
+						<!-- include test sources -->
+						<useTestScope>true</useTestScope>
 						<webAppConfig>
 							<contextPath>/</contextPath>
 							<baseResource
 								implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-								<resourcesAsCSV>src/main/webapp,target/generated-sources/molgenis/doc</resourcesAsCSV>
+								<resourcesAsCSV>src/main/webapp</resourcesAsCSV>
 							</baseResource>
 						</webAppConfig>
 					</configuration>
 				</plugin>
+
 				<!-- Eclipse m2e mappings -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -177,10 +144,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -191,23 +160,99 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- git version id plugin -->
+
+			<!-- generate test sources -->
 			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-				<version>2.1.4</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
 				<executions>
 					<execution>
+						<phase>generate-test-sources</phase>
+						<configuration>
+							<tasks>
+								<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+									classpathref="maven.plugin.classpath" />
+								<if>
+									<!-- only run if the package contains a test model directory -->
+									<available file="${basedir}/src/test/resources/org/molgenis/model"
+										type="dir" />
+									<then>
+										<echo message="GENERATE-DIR ${basedir}" />
+
+										<!-- delete previously generated -->
+										<delete dir="${basedir}/target/generated-sources/test/java" />
+										<mkdir dir="${basedir}/target/generated-sources/test/java" />
+
+										<path id="generate-classpath">
+											<path refid="maven.runtime.classpath" />
+											<path refid="maven.compile.classpath" />
+											<path refid="maven.test.classpath" />
+											<pathelement path="${basedir}/target/test-classes" />
+										</path>
+										<mkdir dir="${basedir}/target/test-classes" />
+										<java classname="org.molgenis.MolgenisTest" classpathref="generate-classpath"
+											failonerror="true" dir="${basedir}" fork="true">
+										</java>
+										<if>
+											<available file="${basedir}/src/test/java" type="dir" />
+											<then>
+												<javac
+													srcdir="${basedir}/src/test/java:${basedir}/src/test/resources"
+													destdir="${basedir}/target/test-classes" classpathref="generate-classpath">
+												</javac>
+											</then>
+										</if>
+									</then>
+								</if>
+							</tasks>
+						</configuration>
 						<goals>
-							<goal>revision</goal>
+							<goal>run</goal>
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-					<generateGitPropertiesFile>true</generateGitPropertiesFile>
-					<generateGitPropertiesFilename>src/main/resources/git.properties</generateGitPropertiesFilename>
-				</configuration>
+				<dependencies>
+					<!-- ant lib tasks for 'if' generator -->
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ant</groupId>
+								<artifactId>ant</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-nodeps</artifactId>
+						<version>1.8.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
+
+			<!-- add generated test sources -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>target/generated-sources/test/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -235,12 +280,6 @@
 					<xmlOutput>true</xmlOutput>
 				</configuration>
 			</plugin>
-			<!-- javadoc <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-javadoc-plugin</artifactId> 
-				<version>2.9</version> <reportSets> <reportSet> <id>non-aggregate</id> <reports> 
-				<report>javadoc</report> </reports> </reportSet> <reportSet> <id>aggregate</id> 
-				<reports> <report>aggregate</report> </reports> </reportSet> </reportSets> 
-				</plugin> -->
-			<!-- project reports -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -291,10 +330,9 @@
 
 	<modules>
 		<module>molgenis-core-model</module>
-		<module>molgenis-core-io</module>		
-		<module>molgenis-core-backend</module>
-		<module>molgenis-core-frontend</module>
-		<module>molgenis-demo-app</module>
-		<module>molgenis-core-views</module>
+		<module>molgenis-core-io</module>
+		<module>molgenis-core-database</module>
+		<module>molgenis-core-view</module>
+		<module>molgenis-core-controllers</module>
 	</modules>
 </project>

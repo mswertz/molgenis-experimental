@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.ListEscapeUtils;
 import org.molgenis.io.TableWriter;
 import org.molgenis.io.processor.AbstractCellProcessor;
@@ -53,7 +53,7 @@ public class ExcelSheetWriter implements TableWriter
 	}
 
 	@Override
-	public void write(Record tuple) throws IOException
+	public void write(Entity tuple) throws IOException
 	{
 		org.apache.poi.ss.usermodel.Row poiRow = sheet.createRow(row++);
 

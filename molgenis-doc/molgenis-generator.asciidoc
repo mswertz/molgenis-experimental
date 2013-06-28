@@ -1,0 +1,26 @@
+== Creating a new molgenis app
+
+MOLGENIS comes with generator with which you can generate new app modules.
+* MOLGENIS automatically uses all available generators from org.molgenis.generators package.
+* MOLGENIS automatically uses models in folder src/resources/org/molgenis/models folder
+You can override these settings via molgenis.properties in root of your project
+
+=== 1. Create new maven module
+
+In eclipse, right-click 'molgenis' project and choose 'new maven module'.
+Expected result: a new maven sub-module folder is created.
+
+=== 2. Create molgenis model
+
+In your module create data model file(s) in /src/resources/org/molgenis/models
+
+For example:
+
+.MOLGENIS data model example
+----
+<molgenis>
+
+</molgenis>
+----
+
+

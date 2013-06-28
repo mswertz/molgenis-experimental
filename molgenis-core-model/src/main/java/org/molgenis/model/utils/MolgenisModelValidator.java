@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.Vector;
 
 import org.apache.log4j.Logger;
-import org.molgenis.MolgenisModel;
 import org.molgenis.model.EntityModel;
 import org.molgenis.model.FieldModel;
 import org.molgenis.model.ModuleModel;
+import org.molgenis.model.MolgenisModel;
 import org.molgenis.model.MolgenisModelException;
 import org.molgenis.model.UniqueModel;
-import org.molgenis.types.EnumField;
-import org.molgenis.types.IntField;
-import org.molgenis.types.MrefField;
-import org.molgenis.types.StringField;
-import org.molgenis.types.XrefField;
+import org.molgenis.model.types.EnumField;
+import org.molgenis.model.types.IntField;
+import org.molgenis.model.types.MrefField;
+import org.molgenis.model.types.StringField;
+import org.molgenis.model.types.XrefField;
 
 public class MolgenisModelValidator
 {
@@ -861,12 +861,6 @@ public class MolgenisModelValidator
 		keywords.addAll(Arrays.asList(ORACLE_KEYWORDS));
 		keywords.addAll(Arrays.asList(MYSQL_KEYWORDS));
 		keywords.addAll(Arrays.asList(HSQL_KEYWORDS));
-
-		if (model.getName().contains(" "))
-		{
-			throw new MolgenisModelException("model name '" + model.getName()
-					+ "' illegal: it cannot contain spaces. Use 'label' if you want to show a name with spaces.");
-		}
 
 		for (ModuleModel m : model.getModules())
 		{

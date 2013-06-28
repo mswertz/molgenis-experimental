@@ -15,11 +15,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
+import org.molgenis.MapEntity;
 import org.molgenis.io.TableReader;
 import org.molgenis.io.processor.AbstractCellProcessor;
 import org.molgenis.io.processor.CellProcessor;
-import org.molgenis.io.record.MapRecord;
 
 /**
  * Comma-Separated Values reader
@@ -68,16 +68,16 @@ public class CsvReader implements TableReader
 	}
 
 	@Override
-	public Iterator<Record> iterator()
+	public Iterator<Entity> iterator()
 	{
 		try
 		{
 			// create column header index once and reuse
 			final Map<String, Integer> colNamesMap = this.colNamesMap == null ? toColNamesMap(csvReader.readNext()) : this.colNamesMap;
 
-			return new Iterator<Record>()
+			return new Iterator<Entity>()
 			{
-				private Record next;
+				private Entity next;
 				private boolean getNext = true;
 
 				@Override
@@ -87,14 +87,14 @@ public class CsvReader implements TableReader
 				}
 
 				@Override
-				public Record next()
+				public Entity next()
 				{
-					Record Record = get();
+					Entity Record = get();
 					getNext = true;
 					return Record;
 				}
 
-				private Record get()
+				private Entity get()
 				{
 					if (getNext)
 					{
@@ -111,7 +111,7 @@ public class CsvReader implements TableReader
 									String value = values[i].isEmpty() ? null : values[i];
 									values[i] = processCell(value, false);
 								}
-								if (colNamesMap != null) next = new MapRecord(colNamesMap, Arrays.asList(values));
+								if (colNamesMap != null) next = new MapEntity(colNamesMap, Arrays.asList(values));
 							}
 							else
 							{

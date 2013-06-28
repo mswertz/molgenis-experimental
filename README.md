@@ -1,8 +1,8 @@
 # Welcome to MOLGENIS
 
-MOLGENIS is an collaborative open source project on a mission to generate great software infrastructure for life science research. Each app in the MOLGENIS family comes with rich data management interface and plug-in integration of analysis tools in R, Java and web services.
+MOLGENIS is an collaborative open source project on a mission to generate great web applications for life science researchers. 
 
-The procedure below tells you how to checkout the molgenis project and build one of the example apps
+The procedure below tells you how to checkout and build the molgenis suite, or use it to generate your own.
 
 ## 1. clone the molgenis repo
 

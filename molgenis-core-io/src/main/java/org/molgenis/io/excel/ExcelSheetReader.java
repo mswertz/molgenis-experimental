@@ -13,13 +13,13 @@ import org.apache.poi.ss.usermodel.CellValue;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
-import org.molgenis.Record;
-import org.molgenis.RecordException;
+import org.molgenis.Entity;
+import org.molgenis.EntityException;
 import org.molgenis.io.TableReader;
 import org.molgenis.io.processor.AbstractCellProcessor;
 import org.molgenis.io.processor.CellProcessor;
-import org.molgenis.io.record.AbstractRecord;
 import org.molgenis.model.EntityModel;
+import org.molgenis.model.FieldModel;
 
 public class ExcelSheetReader implements TableReader
 {
@@ -62,10 +62,10 @@ public class ExcelSheetReader implements TableReader
 	}
 
 	@Override
-	public Iterator<Record> iterator()
+	public Iterator<Entity> iterator()
 	{
 		final Iterator<Row> it = sheet.iterator();
-		if (!it.hasNext()) return Collections.<Record> emptyList().iterator();
+		if (!it.hasNext()) return Collections.<Entity> emptyList().iterator();
 
 		// create column header index once and reuse
 		final Map<String, Integer> colNamesMap;
@@ -77,7 +77,7 @@ public class ExcelSheetReader implements TableReader
 		else colNamesMap = null;
 
 
-		return new Iterator<Record>()
+		return new Iterator<Entity>()
 		{
 			@Override
 			public boolean hasNext()
@@ -86,7 +86,7 @@ public class ExcelSheetReader implements TableReader
 			}
 
 			@Override
-			public Record next()
+			public Entity next()
 			{
 				return new RowIndexRecord(it.next(), colNamesMap, cellProcessors);
 			}
@@ -186,7 +186,7 @@ public class ExcelSheetReader implements TableReader
 		return AbstractCellProcessor.processCell(value, false, cellProcessors);
 	}
 
-	private static class RowIndexRecord extends AbstractRecord
+	private static class RowIndexRecord implements Entity
 	{
 		private static final long serialVersionUID = 1L;
 
@@ -232,20 +232,29 @@ public class ExcelSheetReader implements TableReader
 		@Override
 		public void set(String field, Object value)
 		{
+			// TODO Auto-generated method stub
+			
 		}
 
 		@Override
-		public void set(Record values) throws RecordException
+		public void set(Entity values) throws EntityException
 		{
 			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
-		public void set(Record values, boolean strict)
+		public void set(Entity values, boolean strict)
 		{
 			// TODO Auto-generated method stub
 			
 		}
+
+		@Override
+		public List<FieldModel> getFields()
+		{
+			return getModel().getFields();
+		}
+
 	}
 }

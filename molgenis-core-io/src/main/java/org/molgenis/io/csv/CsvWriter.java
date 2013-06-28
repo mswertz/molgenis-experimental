@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.ListEscapeUtils;
 import org.molgenis.io.TableWriter;
 import org.molgenis.io.processor.AbstractCellProcessor;
@@ -83,7 +83,7 @@ public class CsvWriter implements TableWriter
 	}
 
 	@Override
-	public void write(Record tuple) throws IOException
+	public void write(Entity tuple) throws IOException
 	{
 		String[] values;
 		if (cachedColNames != null)

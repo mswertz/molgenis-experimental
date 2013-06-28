@@ -1,0 +1,12 @@
+<molgenis name="org.molgenis.test">
+	<description>test module</description>
+	<entity name="address" label="DisplayName">
+		<!-- test -->
+		<description>This is a test</description>
+		<field name="id" type="autoid" />
+		<field name="DisplayName" unique="true"/>
+		<field name="FirstName" nillable="true"/>
+		<field name="LastName" nillable="true"/>
+		<field name="Birthday" type="date" />
+	</entity>
+</molgenis>

@@ -13,9 +13,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
+import org.molgenis.MapEntity;
 import org.molgenis.io.processor.CellProcessor;
-import org.molgenis.io.record.MapRecord;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -45,7 +45,7 @@ public class ExcelSheetWriterTest
 	{
 		CellProcessor processor = when(mock(CellProcessor.class).processHeader()).thenReturn(true).getMock();
 
-		MapRecord row1 = new MapRecord();
+		MapEntity row1 = new MapEntity();
 		row1.set("col1", "val1");
 		row1.set("col2", "val2");
 
@@ -60,10 +60,10 @@ public class ExcelSheetWriterTest
 	@Test
 	public void writeColNames() throws IOException
 	{
-		MapRecord row1 = new MapRecord();
+		MapEntity row1 = new MapEntity();
 		row1.set("col1", "val1");
 		row1.set("col2", "val2");
-		MapRecord row2 = new MapRecord();
+		MapEntity row2 = new MapEntity();
 		row2.set("col1", "val3");
 		row2.set("col2", "val4");
 
@@ -75,13 +75,13 @@ public class ExcelSheetWriterTest
 		ExcelReader excelReader = new ExcelReader(new ByteArrayInputStream(bos.toByteArray()), true);
 		try
 		{
-			Iterator<Record> it = excelReader.getSheet("sheet").iterator();
+			Iterator<Entity> it = excelReader.getSheet("sheet").iterator();
 			assertTrue(it.hasNext());
-			Record tuple0 = it.next();
+			Entity tuple0 = it.next();
 			assertEquals(tuple0.get("col1"), "val1");
 			assertEquals(tuple0.get("col2"), "val2");
 			assertTrue(it.hasNext());
-			Record tuple1 = it.next();
+			Entity tuple1 = it.next();
 			assertEquals(tuple1.get("col1"), "val3");
 			assertEquals(tuple1.get("col2"), "val4");
 			assertFalse(it.hasNext());

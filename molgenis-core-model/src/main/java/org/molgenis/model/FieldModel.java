@@ -11,12 +11,12 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
-import org.molgenis.MolgenisTypes;
-import org.molgenis.types.CharField;
-import org.molgenis.types.FieldType;
-import org.molgenis.types.MrefField;
-import org.molgenis.types.StringField;
-import org.molgenis.types.XrefField;
+import org.molgenis.Entity;
+import org.molgenis.EntityFieldTypes;
+import org.molgenis.model.types.FieldType;
+import org.molgenis.model.types.MrefField;
+import org.molgenis.model.types.StringField;
+import org.molgenis.model.types.XrefField;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "field")
@@ -178,14 +178,7 @@ public class FieldModel
 		// default string
 		if (this.type == null || "varchar".equals(this.type)) return new StringField();
 
-		// accomdate autoid
-		if ("autoid".equals(this.type))
-		{
-			this.unique = true;
-			this.auto = true;
-			this.type = "int";
-		}
-		return MolgenisTypes.getType(type);
+		return EntityFieldTypes.getType(type);
 	}
 
 	public void setType(FieldType type)
@@ -239,8 +232,6 @@ public class FieldModel
 	{
 		if ("autoid".equals(this.type))
 		{
-			this.unique = true;
-			this.type = "int";
 			this.auto = true;
 		}
 		return this.auto;
@@ -266,8 +257,6 @@ public class FieldModel
 		if ("autoid".equals(this.type))
 		{
 			this.unique = true;
-			this.type = "int";
-			this.auto = true;
 		}
 		return unique;
 	}
@@ -561,5 +550,10 @@ public class FieldModel
 		}
 		else if (!name.equals(other.name)) return false;
 		return true;
+	}
+	
+	public String toString(Entity entity)
+	{
+		return this.getType().toString(entity.get(this.getName()));
 	}
 }

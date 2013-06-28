@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.processor.CellProcessor;
 import org.testng.annotations.Test;
 
@@ -36,7 +36,7 @@ public class CsvReaderTest
 		{
 			csvReader.addCellProcessor(processor);
 			for (@SuppressWarnings("unused")
-			Record tuple : csvReader)
+			Entity tuple : csvReader)
 			{
 			}
 			verify(processor).process("col1");
@@ -57,7 +57,7 @@ public class CsvReaderTest
 		{
 			csvReader.addCellProcessor(processor);
 			for (@SuppressWarnings("unused")
-			Record tuple : csvReader)
+			Entity tuple : csvReader)
 			{
 			}
 			verify(processor).process("val1");
@@ -115,9 +115,9 @@ public class CsvReaderTest
 		CsvReader csvReader = new CsvReader(new StringReader(csvString));
 		try
 		{
-			Iterator<Record> it = csvReader.iterator();
+			Iterator<Entity> it = csvReader.iterator();
 			assertTrue(it.hasNext());
-			Record tuple = it.next();
+			Entity tuple = it.next();
 			assertEquals(tuple.get("col1"),null);
 		}
 		finally
@@ -132,8 +132,8 @@ public class CsvReaderTest
 		CsvReader tsvReader = new CsvReader(new StringReader("col1\tcol2\nval1\tval2\n"), '\t');
 		try
 		{
-			Iterator<Record> it = tsvReader.iterator();
-			Record t0 = it.next();
+			Iterator<Entity> it = tsvReader.iterator();
+			Entity t0 = it.next();
 			assertEquals(t0.get("col1"), "val1");
 			assertEquals(t0.get("col2"), "val2");
 			assertFalse(it.hasNext());
@@ -156,8 +156,8 @@ public class CsvReaderTest
 			assertTrue(colNamesIt.hasNext());
 			assertEquals(colNamesIt.next(), "col2");
 
-			Iterator<Record> it = csvReader.iterator();
-			Record t0 = it.next();
+			Iterator<Entity> it = csvReader.iterator();
+			Entity t0 = it.next();
 			assertEquals(t0.get("col1"), "val1");
 			assertEquals(t0.get("col2"), "val2");
 			assertFalse(it.hasNext());

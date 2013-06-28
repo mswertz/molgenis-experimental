@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 
-import org.molgenis.Record;
+import org.molgenis.Entity;
 import org.molgenis.io.TableReader;
 import org.molgenis.io.processor.CellProcessor;
 import org.testng.annotations.AfterMethod;
@@ -51,7 +51,7 @@ public class ExcelReaderTest
 		for (TableReader sheetReader : excelReader)
 		{
 			for (@SuppressWarnings("unused")
-			Record tuple : sheetReader)
+			Entity tuple : sheetReader)
 			{
 			}
 		}
@@ -65,7 +65,7 @@ public class ExcelReaderTest
 		CellProcessor processor = when(mock(CellProcessor.class).processData()).thenReturn(true).getMock();
 		excelReader.addCellProcessor(processor);
 		for (TableReader sheetReader : excelReader)
-			for (Record tuple : sheetReader)
+			for (Entity tuple : sheetReader)
 				tuple.get("col2");
 		verify(processor).process("val2");
 		verify(processor).process("val4");

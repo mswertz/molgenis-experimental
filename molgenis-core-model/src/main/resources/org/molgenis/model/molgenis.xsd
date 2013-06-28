@@ -2,25 +2,17 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="molgenis">
 		<xs:complexType>
-			<xs:choice minOccurs="0" maxOccurs="unbounded">
-				<xs:element name="entity" type="entityType" />
-				<xs:element name="form" type="formType" />
-				<xs:element name="menu" type="menuType" />
-				<xs:element name="plugin" type="pluginType" />
-				<xs:element name="module">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="description" type="xs:string"
-								minOccurs="0" maxOccurs="1" />
-							<xs:element name="entity" type="entityType" minOccurs="0"
-								maxOccurs="unbounded" />
-						</xs:sequence>
-						<xs:attribute name="name" type="xs:string" />
-					</xs:complexType>
-				</xs:element>
-			</xs:choice>
+			<xs:sequence>
+				<xs:element name="description" type="xs:string"
+					minOccurs="0" maxOccurs="1" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="entity" type="entityType" />
+					<xs:element name="form" type="formType" />
+					<xs:element name="menu" type="menuType" />
+					<xs:element name="plugin" type="pluginType" />
+				</xs:choice>
+			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" />
-			<xs:attribute name="label" type="xs:string" />
 		</xs:complexType>
 	</xs:element>
 

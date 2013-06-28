@@ -16,8 +16,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import org.apache.log4j.Logger;
-import org.molgenis.MolgenisModel;
-import org.molgenis.types.FieldType;
+import org.molgenis.model.types.FieldType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "entity")
@@ -104,7 +103,7 @@ public class EntityModel
 
 	public String getNamespace()
 	{
-		return getModel().getName() + "." + getModule().getName();
+		return getModule().getName();
 	}
 
 	public List<FieldModel> getAllFields()
@@ -299,6 +298,7 @@ public class EntityModel
 
 	public String getLabel()
 	{
+		if(label == null) return getName();
 		return label;
 	}
 
@@ -685,6 +685,16 @@ public class EntityModel
 	public void setIndices(List<IndexModel> indices)
 	{
 		this.indices = indices;
+	}
+	
+	public List<String> getFieldNames()
+	{
+		List<String> result = new ArrayList<String>();
+		for(FieldModel f: this.getFields())
+		{
+			result.add(f.getName());
+		}
+		return result;
 	}
 	
 	public String toString()
