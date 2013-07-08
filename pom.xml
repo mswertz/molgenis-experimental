@@ -191,8 +191,9 @@
 											<pathelement path="${basedir}/target/test-classes" />
 										</path>
 										<mkdir dir="${basedir}/target/test-classes" />
-										<java classname="org.molgenis.MolgenisTest" classpathref="generate-classpath"
-											failonerror="true" dir="${basedir}" fork="true">
+										<java classname="org.molgenis.GenerateTestSources"
+											classpathref="generate-classpath" failonerror="true" dir="${basedir}"
+											fork="true">
 										</java>
 										<if>
 											<available file="${basedir}/src/test/java" type="dir" />
@@ -329,10 +330,13 @@
 	</dependencies>
 
 	<modules>
-		<module>molgenis-core-model</module>
-		<module>molgenis-core-io</module>
-		<module>molgenis-core-database</module>
-		<module>molgenis-core-view</module>
-		<module>molgenis-core-controllers</module>
+		<module>molgenis-core</module>
+		<module>molgenis-data</module>
+		<module>molgenis-data-jpa</module>
+		<module>molgenis-data-csv</module>
+		<module>molgenis-web-view</module>
+		<module>molgenis-web-controllers</module>
+		<!-- experimental sping data jpa-->
+		<module>molgenis-data-sdj</module>
 	</modules>
 </project>

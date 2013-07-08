@@ -1,0 +1,305 @@
+digraph G {
+        color = "white"
+		compound = true
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+		pagedir="TB"
+		rankdir="BT"
+		bgcolor = "lightyellow"  
+		labelfloat = "true"
+		mode = "hier"
+		overlap = "false"
+		splines = "true"
+		layers = "1:2"
+		clusterrank = "local"
+		outputorder="edgesfirst"
+
+        node [
+			fontname = "Arial"
+            fontsize = 8
+            shape = "record"
+            color = "#808080"
+            style="filled"
+            fillcolor = "white"
+            layer = "2"
+            colorscheme = pastel19
+        ]
+
+        edge [
+                fontname = "Bitstream Vera Sans"
+                fontsize = 8
+                layer = "1"
+        ]
+
+/* entities outside modules*/
+               "InterfaceC" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial-Italic"
+			        	fontcolor = "dimgrey"
+			        	color = "dimgrey"
+                
+                        label = "{Interface:InterfaceC|nameC : string*\lxrefC : xref-&gt;varcharEntity*\l}"
+                ]
+
+               "ClassA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{ClassA|id : autoid*\lfieldA : string*\l}"
+                ]
+
+               "BextendsA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{BextendsA\n extends classA|id : autoid*\lfieldA : string*\lfieldB : string*\l}"
+                ]
+
+               "CextendsA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{CextendsA\n extends classA|id : autoid*\lfieldA : string*\lfieldC : string*\l}"
+                ]
+
+               "DextendsB" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{DextendsB\n extends bextendsA|id : autoid*\lfieldA : string*\lfieldB : string*\lfieldD : string*\l}"
+                ]
+
+               "InterfaceA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial-Italic"
+			        	fontcolor = "dimgrey"
+			        	color = "dimgrey"
+                
+                        label = "{Interface:InterfaceA|id : autoid*\lfieldA : string*\l}"
+                ]
+
+               "BimplementsA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{BimplementsA\n implements InterfaceA|id : autoid*\lfieldA : string*\lfieldB : string*\lissueType : string*\l}"
+                ]
+
+               "CimplementsA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{CimplementsA\n implements InterfaceA|id : autoid*\lfieldA : string*\lfieldC : string*\l}"
+                ]
+
+               "DextendsBimplementsA" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{DextendsBimplementsA\n extends bimplementsA|id : autoid*\lfieldA : string*\lfieldB : string*\lissueType : string*\lfieldD : string*\l}"
+                ]
+
+               "GuessMe" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{GuessMe|thename : string*\lguessMeId : autoid*\l}"
+                ]
+
+               "GuessMeXref" [
+                	    style = "filled"
+                	    fillcolor =  "white"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{GuessMeXref|guessMeXrefId : autoid*\lguessMeId : int*\l}"
+                ]
+
+/*entities inside modules*/
+/*        subgraph cluster_0 {
+        		rankdir = "TB"
+        		pagedir = "TB"
+                label = "org.molgenis.test.fields"
+                labelloc = bottom
+				fillcolor = "white"
+                style="filled"*/
+
+/*        }  */
+/*        subgraph cluster_1 {
+        		rankdir = "TB"
+        		pagedir = "TB"
+                label = "org.molgenis.test.inheritance"
+                labelloc = bottom
+				fillcolor = "white"
+                style="filled"*/
+
+                "InterfaceC" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial-Italic"
+			        	fontcolor = "dimgrey"
+			        	color = "dimgrey"
+                
+                        label = "{Interface:InterfaceC|nameC : string*\lxrefC : xref-&gt;varcharEntity*\l}"
+                ]
+                "ClassA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{ClassA|id : autoid*\lfieldA : string*\l}"
+                ]
+                "BextendsA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{BextendsA\n extends ClassA|id : autoid*\lfieldA : string*\lfieldB : string*\l}"
+                ]
+                "CextendsA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{CextendsA\n extends ClassA|id : autoid*\lfieldA : string*\lfieldC : string*\l}"
+                ]
+                "DextendsB" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{DextendsB\n extends BextendsA|id : autoid*\lfieldA : string*\lfieldB : string*\lfieldD : string*\l}"
+                ]
+                "InterfaceA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial-Italic"
+			        	fontcolor = "dimgrey"
+			        	color = "dimgrey"
+                
+                        label = "{Interface:InterfaceA|id : autoid*\lfieldA : string*\l}"
+                ]
+                "BimplementsA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{BimplementsA\n implements InterfaceA|id : autoid*\lfieldA : string*\lfieldB : string*\lissueType : string*\l}"
+                ]
+                "CimplementsA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{CimplementsA\n implements InterfaceA|id : autoid*\lfieldA : string*\lfieldC : string*\l}"
+                ]
+                "DextendsBimplementsA" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{DextendsBimplementsA\n extends BimplementsA|id : autoid*\lfieldA : string*\lfieldB : string*\lissueType : string*\lfieldD : string*\l}"
+                ]
+                "GuessMe" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{GuessMe|thename : string*\lguessMeId : autoid*\l}"
+                ]
+                "GuessMeXref" [
+                	    style = "filled"
+                	    fillcolor =  "2"
+			        	fontname = "Arial"
+			        	fontcolor = "black"
+			        	color = "black"
+                
+                        label = "{GuessMeXref|guessMeXrefId : autoid*\lguessMeId : int*\l}"
+                ]
+/*        }  */
+/*        subgraph cluster_2 {
+        		rankdir = "TB"
+        		pagedir = "TB"
+                label = "org.molgenis.test"
+                labelloc = bottom
+				fillcolor = "white"
+                style="filled"*/
+
+/*        }  */
+
+/*interface relationships*/
+        edge [
+                arrowhead = "empty"
+                color = "#808080"
+        ]
+
+/*inheritance relationships*/
+        edge [
+                arrowhead = "empty"
+                color = "black"
+        ]
+        
+        "BextendsA" -> "ClassA"
+        "CextendsA" -> "ClassA"
+        "DextendsB" -> "BextendsA"
+        "DextendsBimplementsA" -> "BimplementsA"
+
+/*one to many 'xref' foreign key relationships*/
+        edge [
+                arrowhead = "open"
+                arrowsize = 0.6
+        ]
+        
+        
+/*many to many 'mref' foreign key relationships*/
+        edge [
+             arrowtail = "open"
+             color = "black"
+             headlabel = "*"
+             taillabel = "*"
+             arrowsize = 0.6
+        ]
+}
