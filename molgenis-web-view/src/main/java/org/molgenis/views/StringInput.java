@@ -1,6 +1,5 @@
 package org.molgenis.views;
 
-import org.molgenis.meta.FieldMetaData;
 
 
 /**

@@ -3,3 +3,5 @@
 <#include "Table.ftl"/>
 <#include "ValidatingInput.ftl"/>
 <#include "EntityView.ftl"/>
+<#include "Tabs.ftl"/>
+<#include "Button.ftl"/>

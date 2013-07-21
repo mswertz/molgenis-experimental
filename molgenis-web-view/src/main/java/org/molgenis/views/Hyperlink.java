@@ -15,10 +15,9 @@ public class Hyperlink extends View<Hyperlink>
 		super(randomId());
 	}
 
-	public Hyperlink(String label, String url)
+	public Hyperlink(String url)
 	{
 		this();
-		this.label = label;
 		this.url = url;
 	}
 
@@ -28,7 +27,7 @@ public class Hyperlink extends View<Hyperlink>
 		out.write(String.format("<a href=\"%s\">%s</a>", url, label));
 	}
 
-	public Hyperlink url(String url)
+	public Hyperlink href(String url)
 	{
 		this.setUrl(url);
 		return this;
@@ -56,7 +55,7 @@ public class Hyperlink extends View<Hyperlink>
 		this.label = label;
 	}
 
-	public String getUrl()
+	public String getHref()
 	{
 		return url;
 	}

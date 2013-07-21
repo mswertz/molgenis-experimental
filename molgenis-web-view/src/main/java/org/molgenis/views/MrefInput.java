@@ -3,8 +3,6 @@ package org.molgenis.views;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.springframework.stereotype.Controller;
-
 /**
  * Input for string data. Renders as a <code>textarea</code>.
  * 

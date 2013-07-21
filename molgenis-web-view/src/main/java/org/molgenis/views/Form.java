@@ -16,6 +16,12 @@ public class Form extends View<Form>
 		super(randomId());
 		// super.add(this.layout);
 	}
+	
+	public Form(View<?>...views)
+	{
+		this();
+		this.add(views);
+	}
 
 	public Form add(FieldMetaData field)
 	{

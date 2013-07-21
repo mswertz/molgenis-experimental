@@ -16,13 +16,13 @@ public class Pager extends View<Pager>
 
 	public Pager add(String url, String label)
 	{
-		pages.add(new Hyperlink().url(url).label(label));
+		pages.add(new Hyperlink().href(url).label(label));
 		return this;
 	}
 
 	public Pager add(String url, String label, boolean disabled)
 	{
-		pages.add(new Hyperlink().url(url).label(label).disable(disabled));
+		pages.add(new Hyperlink().href(url).label(label).disable(disabled));
 		return this;
 	}
 
@@ -32,7 +32,7 @@ public class Pager extends View<Pager>
 		out.println("<div class=\"pagination\"><ul>");
 		for (Hyperlink h : pages)
 		{
-			out.println(String.format("<li><a href=\"%s\" %s>%s</a></li>", h.getUrl(),
+			out.println(String.format("<li><a href=\"%s\" %s>%s</a></li>", h.getHref(),
 					h.isDisabled() ? " class=\"disabled\"" : "", h.getLabel()
 					));
 		}

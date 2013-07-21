@@ -1,58 +1,56 @@
 package org.molgenis.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import org.molgenis.Entity;
-import org.molgenis.EntityImp;
-import org.molgenis.MolgenisController;
+import org.molgenis.views.Button;
 import org.molgenis.views.Div;
+import org.molgenis.views.Form;
+import org.molgenis.views.Html;
+import org.molgenis.views.StringInput;
+import org.molgenis.views.Tabs;
+import org.molgenis.views.View;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("container")
-public class ContainerTestController extends MolgenisController
-{
-
-	public Div index()
+@RequestMapping("nested-tabs")
+public class ContainerTestController
+{	
+	//default: show only form with below tabs (lazy load)
+	@RequestMapping()
+	public View<?> get()
 	{
-		return div(href("table", "table"));
+		return new Tabs().item("Aap","/nested-tabs/aap").item("Noot", "/nested-tabs/noot");
 	}
-
-	@RequestMapping("table")
-	public Div table(@RequestParam("p")
-	Integer page)
+	
+	//some content on an url
+	@RequestMapping("aap")
+	public View<?> aap()
 	{
-		if (page == null) page = 1;
-
-		// get the data
-		List<Entity> data = getData();
-
-		// get the page
-		int pageSize = 5;
-		int prevPage = Math.max(1, page - 1);
-		int nextPage = (int) Math.min(page + 1, Math.ceil(data.size() / pageSize));
-
-		return div(H1("Table:"), table(data.subList((page - 1) * 5, (page * 5))),
-				pager().add("?p=" + prevPage, "Prev", prevPage == page).add("?p=" + nextPage, "Next", nextPage == page));
+		return new Div("aap").add(new Html("this is content for aap"), new Button("hello world").url("/nested-tabs/noot/wim").target("aap"));
 	}
-
-	public List<Entity> getData()
+	
+	//some content on an url
+	@RequestMapping("noot")
+	public View<?> noot()
 	{
-		List<Entity> result = new ArrayList<Entity>();
-		for (String code : Locale.getISOCountries())
-		{
-			Locale locale = new Locale("en", code);
-			Entity r = new EntityImp();
-			r.set("Code", code);
-			r.set("Country", locale.getDisplayCountry());
-			result.add(r);
-		}
-
-		return result;
+		return new Tabs().item("Mies","/nested-tabs/noot/mies").item("Wim","/nested-tabs/noot/wim");
 	}
-
+	
+	@RequestMapping("noot/mies")
+	public View<?> mies()
+	{
+		return new Html("this is content for mies");
+	}
+	
+	@RequestMapping("noot/wim")
+	public View<?> wim()
+	{
+		return new Div(new Html("this is content for wim"),new Form(new StringInput("name").value("world"), new Button("hello?").post("/nested-tabs/form").target("aap")));
+	}
+	
+	@RequestMapping("form")
+	public View<?> form(@RequestParam String name)
+	{
+		return new Div(new Html("Hello "+name));
+	}
 }

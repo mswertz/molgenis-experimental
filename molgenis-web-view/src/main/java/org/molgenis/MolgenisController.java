@@ -13,7 +13,6 @@ import org.molgenis.views.DatetimeInput;
 import org.molgenis.views.DecimalInput;
 import org.molgenis.views.Div;
 import org.molgenis.views.EmailInput;
-import org.molgenis.views.Show;
 import org.molgenis.views.FileInput;
 import org.molgenis.views.Form;
 import org.molgenis.views.FreemarkerInput;
@@ -29,6 +28,7 @@ import org.molgenis.views.Pager;
 import org.molgenis.views.PasswordInput;
 import org.molgenis.views.RichtextInput;
 import org.molgenis.views.SelectInput;
+import org.molgenis.views.Show;
 import org.molgenis.views.StringInput;
 import org.molgenis.views.Success;
 import org.molgenis.views.Table;
@@ -99,7 +99,7 @@ public abstract class MolgenisController
 	{
 		Button b = new Button(name);
 		b.url(url);
-		b.setMethod(Method.POST);
+		b.method(Method.POST);
 		return b;
 	}
 
@@ -108,7 +108,7 @@ public abstract class MolgenisController
 	{
 		Button b = new Button(name);
 		b.url(url);
-		b.setMethod(Method.GET);
+		b.method(Method.GET);
 		return b;
 	}
 
@@ -222,9 +222,15 @@ public abstract class MolgenisController
 	}
 
 	/** Create a hyperlink */
-	public Hyperlink href(String name, String url)
+	public Hyperlink href(String url)
 	{
-		return new Hyperlink(name, url);
+		return new Hyperlink(url);
+	}
+	
+	/** Create a hyperlink */
+	public Hyperlink href(String label, String url)
+	{
+		return new Hyperlink(url).label(label);
 	}
 
 	/** Create a simple DIV container */

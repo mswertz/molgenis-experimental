@@ -171,6 +171,8 @@
 						<phase>generate-test-sources</phase>
 						<configuration>
 							<tasks>
+								<!-- to link in javac -->
+								<property name="build.compiler" value="extJavac" />
 								<taskdef resource="net/sf/antcontrib/antcontrib.properties"
 									classpathref="maven.plugin.classpath" />
 								<if>
@@ -336,7 +338,7 @@
 		<module>molgenis-data-csv</module>
 		<module>molgenis-web-view</module>
 		<module>molgenis-web-controllers</module>
-		<!-- experimental sping data jpa-->
+		<!-- experimental sping data jpa -->
 		<module>molgenis-data-sdj</module>
 	</modules>
 </project>

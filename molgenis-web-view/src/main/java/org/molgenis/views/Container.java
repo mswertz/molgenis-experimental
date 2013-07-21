@@ -12,7 +12,6 @@ import java.io.PrintWriter;
  */
 public abstract class Container<T extends Container<T>> extends View<T>
 {
-
 	private String contents = "";
 
 	public Container(View<?>... elements)
@@ -38,4 +37,19 @@ public abstract class Container<T extends Container<T>> extends View<T>
 	}
 
 	public abstract void render(PrintWriter out) throws IOException;
+	
+	public H1 H1(String value)
+	{
+		return new H1(value);
+	}
+	
+	public Hyperlink href(String url)
+	{
+		return new Hyperlink(url);
+	}
+	
+	public Newline br()
+	{
+		return new Newline();
+	}
 }
